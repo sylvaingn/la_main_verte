@@ -30,3 +30,5 @@ $response->send();
 $kernel->terminate($request, $response); //commentaire Karine
 
 // test_modification pour git
+
+//*test
