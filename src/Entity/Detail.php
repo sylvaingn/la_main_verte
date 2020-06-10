@@ -22,6 +22,18 @@ class Detail
      */
     private $quantity;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Stock::class, inversedBy="detail")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $stock;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Ordered::class, inversedBy="detail")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ordered;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +47,30 @@ class Detail
     public function setQuantity(int $quantity): self
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function getStock(): ?Stock
+    {
+        return $this->stock;
+    }
+
+    public function setStock(?Stock $stock): self
+    {
+        $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getOrdered(): ?Ordered
+    {
+        return $this->ordered;
+    }
+
+    public function setOrdered(?Ordered $ordered): self
+    {
+        $this->ordered = $ordered;
 
         return $this;
     }

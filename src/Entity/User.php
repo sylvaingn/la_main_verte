@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -53,6 +55,32 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $phone;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Address::class, inversedBy="users")
+     */
+    private $address;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Ordered::class, mappedBy="user")
+     */
+    private $ordered;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Company::class, inversedBy="user", cascade={"persist", "remove"})
+     */
+    private $company;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Review::class, mappedBy="user")
+     */
+    private $review;
+
+    public function __construct()
+    {
+        $this->ordered = new ArrayCollection();
+        $this->review = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -176,6 +204,92 @@ class User implements UserInterface
     public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getAddress(): ?Address
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?Address $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Ordered[]
+     */
+    public function getOrdered(): Collection
+    {
+        return $this->ordered;
+    }
+
+    public function addOrdered(Ordered $ordered): self
+    {
+        if (!$this->ordered->contains($ordered)) {
+            $this->ordered[] = $ordered;
+            $ordered->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrdered(Ordered $ordered): self
+    {
+        if ($this->ordered->contains($ordered)) {
+            $this->ordered->removeElement($ordered);
+            // set the owning side to null (unless already changed)
+            if ($ordered->getUser() === $this) {
+                $ordered->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getCompany(): ?Company
+    {
+        return $this->company;
+    }
+
+    public function setCompany(?Company $company): self
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Review[]
+     */
+    public function getReview(): Collection
+    {
+        return $this->review;
+    }
+
+    public function addReview(Review $review): self
+    {
+        if (!$this->review->contains($review)) {
+            $this->review[] = $review;
+            $review->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReview(Review $review): self
+    {
+        if ($this->review->contains($review)) {
+            $this->review->removeElement($review);
+            // set the owning side to null (unless already changed)
+            if ($review->getUser() === $this) {
+                $review->setUser(null);
+            }
+        }
 
         return $this;
     }
