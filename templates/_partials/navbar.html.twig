@@ -1,46 +1,55 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Logo</a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
         aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-        {% if app.user %}
+            {% if app.user %}
 
-            <li class="nav-item">
-                <a class="nav-item nav-link" href="{{ path('accueil') }}">Bienvenue
-                    {{app.user.username}}!</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link" href="#">Bienvenue {{app.user.username}}!</a>
+                </li>
+
                 {% if is_granted ("ROLE_CLIENT") %}
-                <li class="nav-item">
-                    <a class="nav-item nav-link" href="{{ path('accueil') }}">Mon compte</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="#">Mon compte</a>
+                    </li>
                 {% endif %}
+
                 {% if is_granted ("ROLE_PRODUCTEUR") %}
-                <li class="nav-item">
-                    <a class="nav-item nav-link" href="{{ path('accueil') }}">Ma ferme</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="#">Ma ferme</a>
+                    </li>
                 {% endif %}
+
                 {% if is_granted ("ROLE_ADMIN") %}
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Gestion des données</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gestion des données</a>
+                    </li>
                 {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Nous contacter</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nous contacter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="#">Supprimer mon compte</a>
+                    </li>
                 {% endif %}
-           <li class="nav-item">
-                <a class="nav-item nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-item nav-link" href="{{ path('app_login') }}">Se connecter</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-item nav-link" href="{{ path('app_register') }}">Créer un compte</a>
-            </li>
-        {% endif %}
+
+                <li class="nav-item">
+                    <a class="nav-item nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                </li>
+
+            {% else %}
+
+                <li class="nav-item">
+                    <a class="nav-item nav-link" href="{{ path('app_login') }}">Se connecter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link" href="{{ path('app_register') }}">Créer un compte</a>
+                </li>
+                
+            {% endif %}
 
         </ul>
 
