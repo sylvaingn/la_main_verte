@@ -25,11 +25,6 @@ class AppController extends AbstractController
      *
      */
 
-    public function contact()
-    {
-        return $this->render('app/contact.html.twig');
-    }
-
 
     /**
      * @Route ("/a-propos", name="app_propos")
