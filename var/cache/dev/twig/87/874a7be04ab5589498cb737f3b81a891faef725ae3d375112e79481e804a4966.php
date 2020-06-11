@@ -86,21 +86,6 @@ class __TwigTemplate_276e11dc47d6f0692aa22baac7a5bbba49a2198fdc34c827360927bd92a
         crossorigin=\"anonymous\"></script>
 </body>
 
-</html>
-
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset=\"UTF-8\">
-
-</head>
-
-<body>
-
-</body>
-
 </html>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -190,7 +175,7 @@ class __TwigTemplate_276e11dc47d6f0692aa22baac7a5bbba49a2198fdc34c827360927bd92a
 
     public function getDebugInfo()
     {
-        return array (  169 => 18,  151 => 17,  133 => 6,  114 => 5,  76 => 19,  73 => 18,  71 => 17,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  154 => 18,  136 => 17,  118 => 6,  99 => 5,  76 => 19,  73 => 18,  71 => 17,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -224,21 +209,6 @@ class __TwigTemplate_276e11dc47d6f0692aa22baac7a5bbba49a2198fdc34c827360927bd92a
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"
         integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\"
         crossorigin=\"anonymous\"></script>
-</body>
-
-</html>
-
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset=\"UTF-8\">
-
-</head>
-
-<body>
-
 </body>
 
 </html>", "base.html.twig", "/Users/Sylvain1/Symfony/la_main_verte/templates/base.html.twig");
