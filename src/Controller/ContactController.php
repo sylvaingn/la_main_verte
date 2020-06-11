@@ -15,18 +15,9 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ContactController extends AbstractController
 {
-    /**
-     * @Route("/", name="contact_index", methods={"GET"})
-     */
-    public function index(ContactRepository $contactRepository): Response
-    {
-        return $this->render('contact/index.html.twig', [
-            'contacts' => $contactRepository->findAll(),
-        ]);
-    }
 
     /**
-     * @Route("/new", name="contact_new", methods={"GET","POST"})
+     * @Route("/", name="contact_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -39,7 +30,7 @@ class ContactController extends AbstractController
             $entityManager->persist($contact);
             $entityManager->flush();
 
-            return $this->redirectToRoute('contact_index');
+            return $this->redirectToRoute('app_index');
         }
 
         return $this->render('contact/new.html.twig', [
