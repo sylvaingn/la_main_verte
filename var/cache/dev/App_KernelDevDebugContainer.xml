@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
+<<<<<<< HEAD
     <parameter key="kernel.project_dir">C:\Symfony\la_main_verte</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.cache_dir">C:\Symfony\la_main_verte\var\cache\dev</parameter>
     <parameter key="kernel.logs_dir">C:\Symfony\la_main_verte\var\log</parameter>
+=======
+    <parameter key="kernel.project_dir">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte</parameter>
+    <parameter key="kernel.environment">dev</parameter>
+    <parameter key="kernel.debug">true</parameter>
+    <parameter key="kernel.cache_dir">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev</parameter>
+    <parameter key="kernel.logs_dir">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\log</parameter>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
@@ -22,6 +30,7 @@
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
+<<<<<<< HEAD
         <parameter key="path">C:\Symfony\la_main_verte\vendor\symfony\framework-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
       </parameter>
@@ -67,6 +76,53 @@
       </parameter>
       <parameter key="SymfonyCastsVerifyEmailBundle" type="collection">
         <parameter key="path">C:\Symfony\la_main_verte\vendor\symfonycasts\verify-email-bundle\src</parameter>
+=======
+        <parameter key="path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\framework-bundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
+      </parameter>
+      <parameter key="SecurityBundle" type="collection">
+        <parameter key="path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-bundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\SecurityBundle</parameter>
+      </parameter>
+      <parameter key="TwigBundle" type="collection">
+        <parameter key="path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\twig-bundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
+      </parameter>
+      <parameter key="TwigExtraBundle" type="collection">
+        <parameter key="path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\twig\extra-bundle\src</parameter>
+        <parameter key="namespace">Twig\Extra\TwigExtraBundle</parameter>
+      </parameter>
+      <parameter key="WebProfilerBundle" type="collection">
+        <parameter key="path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\web-profiler-bundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\WebProfilerBundle</parameter>
+      </parameter>
+      <parameter key="SensioFrameworkExtraBundle" type="collection">
+        <parameter key="path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\sensio\framework-extra-bundle\src</parameter>
+        <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
+      </parameter>
+      <parameter key="DoctrineBundle" type="collection">
+        <parameter key="path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\doctrine\doctrine-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\DoctrineBundle</parameter>
+      </parameter>
+      <parameter key="DoctrineMigrationsBundle" type="collection">
+        <parameter key="path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\doctrine\doctrine-migrations-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\MigrationsBundle</parameter>
+      </parameter>
+      <parameter key="MonologBundle" type="collection">
+        <parameter key="path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\monolog-bundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\MonologBundle</parameter>
+      </parameter>
+      <parameter key="DebugBundle" type="collection">
+        <parameter key="path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\debug-bundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\DebugBundle</parameter>
+      </parameter>
+      <parameter key="MakerBundle" type="collection">
+        <parameter key="path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\maker-bundle\src</parameter>
+        <parameter key="namespace">Symfony\Bundle\MakerBundle</parameter>
+      </parameter>
+      <parameter key="SymfonyCastsVerifyEmailBundle" type="collection">
+        <parameter key="path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfonycasts\verify-email-bundle\src</parameter>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
         <parameter key="namespace">SymfonyCasts\Bundle\VerifyEmail</parameter>
       </parameter>
     </parameter>
@@ -117,13 +173,18 @@
       <parameter key="cookie_samesite">lax</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
+<<<<<<< HEAD
     <parameter key="session.save_path">C:\Symfony\la_main_verte\var\cache\dev/sessions</parameter>
+=======
+    <parameter key="session.save_path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/sessions</parameter>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
     <parameter key="asset.request_context.base_path">null</parameter>
     <parameter key="asset.request_context.secure">null</parameter>
     <parameter key="validator.mapping.cache.prefix"></parameter>
+<<<<<<< HEAD
     <parameter key="validator.mapping.cache.file">C:\Symfony\la_main_verte\var\cache\dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="translator.logging">false</parameter>
@@ -133,13 +194,28 @@
     <parameter key="profiler.storage.dsn">file:C:\Symfony\la_main_verte\var\cache\dev/profiler</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
     <parameter key="debug.container.dump">C:\Symfony\la_main_verte\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
+=======
+    <parameter key="validator.mapping.cache.file">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/validation.php</parameter>
+    <parameter key="validator.translation_domain">validators</parameter>
+    <parameter key="translator.logging">false</parameter>
+    <parameter key="translator.default_path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte/translations</parameter>
+    <parameter key="profiler_listener.only_exceptions">false</parameter>
+    <parameter key="profiler_listener.only_master_requests">false</parameter>
+    <parameter key="profiler.storage.dsn">file:C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/profiler</parameter>
+    <parameter key="debug.error_handler.throw_at">-1</parameter>
+    <parameter key="debug.container.dump">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
     <parameter key="router.resource">kernel::loadRoutes</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
+<<<<<<< HEAD
     <parameter key="serializer.mapping.cache.file">C:\Symfony\la_main_verte\var\cache\dev/serialization.php</parameter>
+=======
+    <parameter key="serializer.mapping.cache.file">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/serialization.php</parameter>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     <parameter key="serializer.mapping.cache.prefix"></parameter>
     <parameter key="security.role_hierarchy.roles" type="collection"/>
     <parameter key="security.access.denied_url">null</parameter>
@@ -150,7 +226,11 @@
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
     </parameter>
+<<<<<<< HEAD
     <parameter key="twig.default_path">C:\Symfony\la_main_verte/templates</parameter>
+=======
+    <parameter key="twig.default_path">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte/templates</parameter>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
     <parameter key="doctrine.dbal.logger.chain.class">Doctrine\DBAL\Logging\LoggerChain</parameter>
@@ -218,9 +298,15 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
+<<<<<<< HEAD
     <parameter key="doctrine.orm.proxy_dir">C:\Symfony\la_main_verte\var\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine_migrations.dir_name">C:\Symfony\la_main_verte/src/Migrations</parameter>
+=======
+    <parameter key="doctrine.orm.proxy_dir">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
+    <parameter key="doctrine_migrations.dir_name">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte/src/Migrations</parameter>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     <parameter key="doctrine_migrations.namespace">DoctrineMigrations</parameter>
     <parameter key="doctrine_migrations.table_name">migration_versions</parameter>
     <parameter key="doctrine_migrations.column_name">version</parameter>
@@ -575,7 +661,11 @@
       <tag name="container.no_preload"/>
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer" public="true">
       <argument type="tagged_iterator" tag="kernel.cache_clearer"/>
@@ -720,21 +810,37 @@
         <argument>/_fragment</argument>
       </call>
     </service>
+<<<<<<< HEAD
     <service id=".2_~gIJMa0b" public="false">
       <argument type="service" id="request_stack"/>
       <factory class="Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer" method="getAndCleanOutputBuffer"/>
     </service>
     <service id=".1_~gIJMa0b" public="false">
+=======
+    <service id=".2_~WtAnejf" public="false">
+      <argument type="service" id="request_stack"/>
+      <factory class="Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer" method="getAndCleanOutputBuffer"/>
+    </service>
+    <service id=".1_~WtAnejf" public="false">
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="request_stack"/>
       <argument>true</argument>
       <factory class="Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer" method="isDebug"/>
     </service>
     <service id="error_handler.error_renderer.html" class="Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer">
+<<<<<<< HEAD
       <argument type="service" id=".1_~gIJMa0b"/>
       <argument>UTF-8</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
       <argument>C:\Symfony\la_main_verte</argument>
       <argument type="service" id=".2_~gIJMa0b"/>
+=======
+      <argument type="service" id=".1_~WtAnejf"/>
+      <argument>UTF-8</argument>
+      <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte</argument>
+      <argument type="service" id=".2_~WtAnejf"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="monolog.logger" on-invalid="null"/>
     </service>
     <service id="console.error_listener" class="Symfony\Component\Console\EventListener\ErrorListener" public="false">
@@ -758,7 +864,11 @@
       <tag name="console.command" command="assets:install"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="filesystem"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <call method="setName">
         <argument>assets:install</argument>
       </call>
@@ -892,6 +1002,7 @@
       <argument type="service" id="translator.data_collector"/>
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte/translations</argument>
       <argument>C:\Symfony\la_main_verte/templates</argument>
       <argument type="collection">
@@ -902,6 +1013,18 @@
       <argument type="collection">
         <argument>C:\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Email</argument>
         <argument>C:\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte/translations</argument>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte/templates</argument>
+      <argument type="collection">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations</argument>
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations</argument>
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations</argument>
+      </argument>
+      <argument type="collection">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       </argument>
       <call method="setName">
         <argument>debug:translation</argument>
@@ -914,6 +1037,7 @@
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
       <argument>en</argument>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte/translations</argument>
       <argument>C:\Symfony\la_main_verte/templates</argument>
       <argument type="collection">
@@ -924,6 +1048,18 @@
       <argument type="collection">
         <argument>C:\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Email</argument>
         <argument>C:\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte/translations</argument>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte/templates</argument>
+      <argument type="collection">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations</argument>
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations</argument>
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations</argument>
+      </argument>
+      <argument type="collection">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       </argument>
       <call method="setName">
         <argument>translation:update</argument>
@@ -1082,7 +1218,11 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte\var\cache\dev/pools</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/pools</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1111,7 +1251,11 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte\var\cache\dev/pools</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/pools</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -1220,8 +1364,13 @@
       <argument>0</argument>
       <argument>false</argument>
     </service>
+<<<<<<< HEAD
     <service id=".1_NativeFileSessionHandler~QieK9.0" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler" public="false">
       <argument>C:\Symfony\la_main_verte\var\cache\dev/sessions</argument>
+=======
+    <service id=".1_NativeFileSessionHandler~GKfDpMW" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler" public="false">
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/sessions</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     </service>
     <service id="session" class="Symfony\Component\HttpFoundation\Session\Session" public="true">
       <argument type="service" id="session.storage.native"/>
@@ -1255,12 +1404,20 @@
       <deprecated package="symfony/framework-bundle" version="5.1">The "%service_id%" service is deprecated, use "$session-&gt;getAttributeBag()" instead.</deprecated>
     </service>
     <service id="session.storage.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage" public="false">
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte\var\cache\dev/sessions</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/sessions</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
     <service id="session.handler.native_file" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\StrictSessionHandler" public="false">
+<<<<<<< HEAD
       <argument type="service" id=".1_NativeFileSessionHandler~QieK9.0"/>
+=======
+      <argument type="service" id=".1_NativeFileSessionHandler~GKfDpMW"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     </service>
     <service id="session.abstract_handler" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\AbstractSessionHandler" public="false">
       <argument></argument>
@@ -1292,7 +1449,11 @@
       <tag name="twig.extension"/>
     </service>
     <service id="form.resolved_type_factory" class="Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy" public="false">
+<<<<<<< HEAD
       <argument type="service" id=".1_ResolvedFormTypeFactory~kktwYl7"/>
+=======
+      <argument type="service" id=".1_ResolvedFormTypeFactory~vfVd14i"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="data_collector.form"/>
     </service>
     <service id="form.registry" class="Symfony\Component\Form\FormRegistry" public="false">
@@ -1591,7 +1752,11 @@
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
+<<<<<<< HEAD
           <argument>C:\Symfony\la_main_verte\vendor\symfony\form/Resources/config/validation.xml</argument>
+=======
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/config/validation.xml</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -1616,10 +1781,17 @@
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte\var\cache\dev/validation.php</argument>
     </service>
     <service id="validator.mapping.cache.adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
       <argument>C:\Symfony\la_main_verte\var\cache\dev/validation.php</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/validation.php</argument>
+    </service>
+    <service id="validator.mapping.cache.adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/validation.php</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="cache.validator"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -1690,6 +1862,7 @@
         </argument>
       </argument>
       <argument type="collection">
+<<<<<<< HEAD
         <argument key="cache_dir">C:\Symfony\la_main_verte\var\cache\dev/translations</argument>
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
@@ -1979,6 +2152,297 @@
             <argument>C:\Symfony\la_main_verte\vendor\symfony\debug-bundle/translations</argument>
             <argument>C:\Symfony\la_main_verte\vendor\symfony\maker-bundle\src/translations</argument>
             <argument>C:\Symfony\la_main_verte\vendor\symfonycasts\verify-email-bundle\src/translations</argument>
+=======
+        <argument key="cache_dir">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/translations</argument>
+        <argument key="debug">true</argument>
+        <argument key="resource_files" type="collection">
+          <argument key="af" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.af.xlf</argument>
+          </argument>
+          <argument key="ar" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
+          </argument>
+          <argument key="az" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.az.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.az.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.az.xlf</argument>
+          </argument>
+          <argument key="be" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.be.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.be.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.be.xlf</argument>
+          </argument>
+          <argument key="bg" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.bg.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.bg.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.bg.xlf</argument>
+          </argument>
+          <argument key="ca" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.ca.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.ca.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.ca.xlf</argument>
+          </argument>
+          <argument key="cs" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
+          </argument>
+          <argument key="cy" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.cy.xlf</argument>
+          </argument>
+          <argument key="da" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.da.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.da.xlf</argument>
+          </argument>
+          <argument key="de" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
+          </argument>
+          <argument key="el" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.el.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.el.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.el.xlf</argument>
+          </argument>
+          <argument key="en" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
+          </argument>
+          <argument key="es" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
+          </argument>
+          <argument key="et" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.et.xlf</argument>
+          </argument>
+          <argument key="eu" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.eu.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.eu.xlf</argument>
+          </argument>
+          <argument key="fa" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.fa.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.fa.xlf</argument>
+          </argument>
+          <argument key="fi" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.fi.xlf</argument>
+          </argument>
+          <argument key="fr" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
+          </argument>
+          <argument key="gl" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.gl.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.gl.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.gl.xlf</argument>
+          </argument>
+          <argument key="he" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.he.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.he.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.he.xlf</argument>
+          </argument>
+          <argument key="hr" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.hr.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.hr.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.hr.xlf</argument>
+          </argument>
+          <argument key="hu" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
+          </argument>
+          <argument key="hy" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.hy.xlf</argument>
+          </argument>
+          <argument key="id" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
+          </argument>
+          <argument key="it" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
+          </argument>
+          <argument key="ja" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
+          </argument>
+          <argument key="lb" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.lb.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.lb.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.lb.xlf</argument>
+          </argument>
+          <argument key="lt" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.lt.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.lt.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.lt.xlf</argument>
+          </argument>
+          <argument key="lv" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.lv.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.lv.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.lv.xlf</argument>
+          </argument>
+          <argument key="mn" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.mn.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.mn.xlf</argument>
+          </argument>
+          <argument key="nb" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.nb.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.nb.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.nb.xlf</argument>
+          </argument>
+          <argument key="nl" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
+          </argument>
+          <argument key="nn" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.nn.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.nn.xlf</argument>
+          </argument>
+          <argument key="no" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.no.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.no.xlf</argument>
+          </argument>
+          <argument key="pl" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
+          </argument>
+          <argument key="pt" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
+          </argument>
+          <argument key="pt_BR" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.pt_BR.xlf</argument>
+          </argument>
+          <argument key="ro" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.ro.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.ro.xlf</argument>
+          </argument>
+          <argument key="ru" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
+          </argument>
+          <argument key="sk" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.sk.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.sk.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.sk.xlf</argument>
+          </argument>
+          <argument key="sl" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.sl.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.sl.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.sl.xlf</argument>
+          </argument>
+          <argument key="sq" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.sq.xlf</argument>
+          </argument>
+          <argument key="sr_Cyrl" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.sr_Cyrl.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.sr_Cyrl.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.sr_Cyrl.xlf</argument>
+          </argument>
+          <argument key="sr_Latn" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.sr_Latn.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.sr_Latn.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.sr_Latn.xlf</argument>
+          </argument>
+          <argument key="sv" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.sv.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.sv.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.sv.xlf</argument>
+          </argument>
+          <argument key="th" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.th.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.th.xlf</argument>
+          </argument>
+          <argument key="tl" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.tl.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.tl.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.tl.xlf</argument>
+          </argument>
+          <argument key="tr" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.tr.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.tr.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.tr.xlf</argument>
+          </argument>
+          <argument key="uk" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
+          </argument>
+          <argument key="vi" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.vi.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.vi.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.vi.xlf</argument>
+          </argument>
+          <argument key="zh_CN" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.zh_CN.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations\validators.zh_CN.xlf</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.zh_CN.xlf</argument>
+          </argument>
+          <argument key="zh_TW" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations\validators.zh_TW.xlf</argument>
+          </argument>
+          <argument key="pt_PT" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations\security.pt_PT.xlf</argument>
+          </argument>
+        </argument>
+        <argument key="scanned_directories" type="collection">
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\framework-bundle/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-bundle/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\twig-bundle/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\twig\extra-bundle\src/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\web-profiler-bundle/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\sensio\framework-extra-bundle\src/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\doctrine\doctrine-bundle/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\monolog-bundle/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\debug-bundle/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\maker-bundle\src/translations</argument>
+          <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfonycasts\verify-email-bundle\src/translations</argument>
+        </argument>
+        <argument key="cache_vary" type="collection">
+          <argument key="scanned_directories" type="collection">
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\validator/Resources/translations</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\form/Resources/translations</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-core/Resources/translations</argument>
+            <argument>translations</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\framework-bundle/translations</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-bundle/translations</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\twig-bundle/translations</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\twig\extra-bundle\src/translations</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\web-profiler-bundle/translations</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\sensio\framework-extra-bundle\src/translations</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\doctrine\doctrine-bundle/translations</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\monolog-bundle/translations</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\debug-bundle/translations</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\maker-bundle\src/translations</argument>
+            <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfonycasts\verify-email-bundle\src/translations</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
           </argument>
         </argument>
       </argument>
@@ -2251,7 +2715,11 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
+<<<<<<< HEAD
       <argument>file:C:\Symfony\la_main_verte\var\cache\dev/profiler</argument>
+=======
+      <argument>file:C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/profiler</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener" public="false">
       <tag name="kernel.event_subscriber"/>
@@ -2289,7 +2757,11 @@
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service" id="monolog.logger.profiler" on-invalid="ignore"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte\var\cache\dev/App_KernelDevDebugContainer</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/App_KernelDevDebugContainer</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="request_stack" on-invalid="ignore"/>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector" public="false">
@@ -2356,7 +2828,11 @@
         <argument>cache.serializer</argument>
       </argument>
     </service>
+<<<<<<< HEAD
     <service id=".1_ResolvedFormTypeFactory~kktwYl7" class="Symfony\Component\Form\ResolvedFormTypeFactory" public="false"/>
+=======
+    <service id=".1_ResolvedFormTypeFactory~vfVd14i" class="Symfony\Component\Form\ResolvedFormTypeFactory" public="false"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     <service id="form.type_extension.form.data_collector" class="Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension" public="false">
       <tag name="form.type_extension"/>
       <argument type="service" id="data_collector.form"/>
@@ -2408,7 +2884,11 @@
     <service id="debug.file_link_formatter" class="Symfony\Component\HttpKernel\Debug\FileLinkFormatter" public="false">
       <argument>null</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="debug.file_link_formatter.url_format"/>
     </service>
     <service id="debug.stopwatch" class="Symfony\Component\Stopwatch\Stopwatch">
@@ -2868,10 +3348,17 @@
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor" public="false">
       <argument type="service" id="request_stack"/>
     </service>
+<<<<<<< HEAD
     <service id=".2_int~ziIy9l2" class="int" public="false">
       <factory service="router.request_context" method="getHttpsPort"/>
     </service>
     <service id=".1_int~ziIy9l2" class="int" public="false">
+=======
+    <service id=".2_int~lSGpQ2u" class="int" public="false">
+      <factory service="router.request_context" method="getHttpsPort"/>
+    </service>
+    <service id=".1_int~lSGpQ2u" class="int" public="false">
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <factory service="router.request_context" method="getHttpPort"/>
     </service>
     <service id="routing.resolver" class="Symfony\Component\Config\Loader\LoaderResolver" public="false">
@@ -2940,7 +3427,11 @@
       <argument type="service" id=".service_locator.lwpeR6U.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
+<<<<<<< HEAD
         <argument key="cache_dir">C:\Symfony\la_main_verte\var\cache\dev</argument>
+=======
+        <argument key="cache_dir">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -2990,13 +3481,22 @@
       <argument type="service" id="request_stack"/>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.request" on-invalid="ignore"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument>true</argument>
     </service>
     <service id="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" class="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" public="true">
       <argument type="service" id="router.default"/>
+<<<<<<< HEAD
       <argument type="service" id=".1_int~ziIy9l2"/>
       <argument type="service" id=".2_int~ziIy9l2"/>
+=======
+      <argument type="service" id=".1_int~lSGpQ2u"/>
+      <argument type="service" id=".2_int~lSGpQ2u"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     </service>
     <service id="Symfony\Bundle\FrameworkBundle\Controller\TemplateController" class="Symfony\Bundle\FrameworkBundle\Controller\TemplateController" public="true">
       <argument type="service" id="twig" on-invalid="ignore"/>
@@ -3015,12 +3515,21 @@
       <argument type="service" id="file_locator"/>
       <argument type="service" id="routing.loader.annotation"/>
     </service>
+<<<<<<< HEAD
     <service id=".2_PhpArrayAdapter~48akNfT" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
       <argument>C:\Symfony\la_main_verte\var\cache\dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
     <service id=".1_ArrayCache~48akNfT" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
+=======
+    <service id=".2_PhpArrayAdapter~wdSepr4" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/annotations.php</argument>
+      <argument type="service" id="cache.annotations"/>
+      <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
+    </service>
+    <service id=".1_ArrayCache~wdSepr4" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader" public="false">
       <call method="addGlobalIgnoredName">
         <argument>required</argument>
@@ -3035,7 +3544,11 @@
     <service id="annotations.cached_reader" class="Doctrine\Common\Annotations\CachedReader" public="false">
       <tag name="annotations.cached_reader"/>
       <argument type="service" id="annotations.reader"/>
+<<<<<<< HEAD
       <argument type="service" id=".1_ArrayCache~48akNfT"/>
+=======
+      <argument type="service" id=".1_ArrayCache~wdSepr4"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument>true</argument>
       <property name="cacheProviderBackup" type="service" id="annotations.cache"/>
     </service>
@@ -3045,12 +3558,20 @@
     <service id="annotations.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="annotations.reader"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte\var\cache\dev/annotations.php</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/annotations.php</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument>#^Symfony\\(?:Component\\HttpKernel\\|Bundle\\FrameworkBundle\\Controller\\(?!.*Controller$))#</argument>
       <argument>true</argument>
     </service>
     <service id="annotations.cache" class="Symfony\Component\Cache\DoctrineProvider" public="false">
+<<<<<<< HEAD
       <argument type="service" id=".2_PhpArrayAdapter~48akNfT"/>
+=======
+      <argument type="service" id=".2_PhpArrayAdapter~wdSepr4"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     </service>
     <service id="property_accessor" class="Symfony\Component\PropertyAccess\PropertyAccessor" public="false">
       <argument>false</argument>
@@ -3062,7 +3583,11 @@
     </service>
     <service id="secrets.vault" class="Symfony\Bundle\FrameworkBundle\Secrets\SodiumVault">
       <tag name="container.env_var_loader"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte/config/secrets/dev</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte/config/secrets/dev</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="secrets.decryption_key" on-invalid="ignore"/>
     </service>
     <service id="secrets.decryption_key" class="Symfony\Component\String\LazyString" public="false">
@@ -3071,14 +3596,24 @@
       <factory class="Symfony\Component\String\LazyString" method="fromCallable"/>
     </service>
     <service id="secrets.local_vault" class="Symfony\Bundle\FrameworkBundle\Secrets\DotenvVault">
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte/.env.dev.local</argument>
     </service>
     <service id=".2_~XnkQz6C" public="false">
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte/.env.dev.local</argument>
+    </service>
+    <service id=".2_~HwY.dHs" public="false">
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="request_stack"/>
       <argument>true</argument>
       <factory class="Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer" method="isDebug"/>
     </service>
+<<<<<<< HEAD
     <service id=".1_~XnkQz6C" public="false">
+=======
+    <service id=".1_~HwY.dHs" public="false">
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="request_stack"/>
       <factory class="Symfony\Component\ErrorHandler\ErrorRenderer\SerializerErrorRenderer" method="getPreferredFormat"/>
     </service>
@@ -3165,10 +3700,17 @@
           </service>
         </argument>
       </argument>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte\var\cache\dev/serialization.php</argument>
     </service>
     <service id="serializer.mapping.cache.symfony" class="Psr\Cache\CacheItemPoolInterface" public="false">
       <argument>C:\Symfony\la_main_verte\var\cache\dev/serialization.php</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/serialization.php</argument>
+    </service>
+    <service id="serializer.mapping.cache.symfony" class="Psr\Cache\CacheItemPoolInterface" public="false">
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/serialization.php</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="cache.serializer"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -3198,9 +3740,15 @@
     </service>
     <service id="error_handler.error_renderer.serializer" class="Symfony\Component\ErrorHandler\ErrorRenderer\SerializerErrorRenderer" public="false">
       <argument type="service" id="serializer"/>
+<<<<<<< HEAD
       <argument type="service" id=".1_~XnkQz6C"/>
       <argument type="service" id="twig.error_renderer.html"/>
       <argument type="service" id=".2_~XnkQz6C"/>
+=======
+      <argument type="service" id=".1_~HwY.dHs"/>
+      <argument type="service" id="twig.error_renderer.html"/>
+      <argument type="service" id=".2_~HwY.dHs"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     </service>
     <service id="property_info" class="Symfony\Component\PropertyInfo\PropertyInfoExtractor" public="false">
       <argument type="iterator">
@@ -3391,10 +3939,17 @@
       <tag name="kernel.reset" method="reset"/>
       <argument type="service" id="cache.security_expression_language.recorder_inner"/>
     </service>
+<<<<<<< HEAD
     <service id=".2_int~kVahur0" class="int" public="false">
       <factory service="router.request_context" method="getHttpsPort"/>
     </service>
     <service id=".1_int~kVahur0" class="int" public="false">
+=======
+    <service id=".2_int~Eau8JyI" class="int" public="false">
+      <factory service="router.request_context" method="getHttpsPort"/>
+    </service>
+    <service id=".1_int~Eau8JyI" class="int" public="false">
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <factory service="router.request_context" method="getHttpPort"/>
     </service>
     <service id="security.authentication.listener.anonymous" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
@@ -3408,8 +3963,13 @@
       <argument></argument>
     </service>
     <service id="security.authentication.retry_entry_point" class="Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint" public="false">
+<<<<<<< HEAD
       <argument type="service" id=".1_int~kVahur0"/>
       <argument type="service" id=".2_int~kVahur0"/>
+=======
+      <argument type="service" id=".1_int~Eau8JyI"/>
+      <argument type="service" id=".2_int~Eau8JyI"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     </service>
     <service id="security.authentication.basic_entry_point" class="Symfony\Component\Security\Http\EntryPoint\BasicAuthenticationEntryPoint" public="false"/>
     <service id="security.channel_listener" class="Symfony\Component\Security\Http\Firewall\ChannelListener" public="false">
@@ -3895,7 +4455,11 @@
         <argument>security:encode-password</argument>
       </call>
     </service>
+<<<<<<< HEAD
     <service id=".1_~hn6bvxX" public="false">
+=======
+    <service id=".1_~ZYPRXuy" public="false">
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="request_stack"/>
       <argument>true</argument>
       <factory class="Symfony\Bridge\Twig\ErrorRenderer\TwigErrorRenderer" method="isDebug"/>
@@ -3912,7 +4476,11 @@
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
         <argument key="autoescape">name</argument>
+<<<<<<< HEAD
         <argument key="cache">C:\Symfony\la_main_verte\var\cache\dev/twig</argument>
+=======
+        <argument key="cache">C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/twig</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
         <argument key="charset">UTF-8</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
@@ -4009,10 +4577,17 @@
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator" public="false">
       <argument type="service" id="kernel"/>
       <argument type="collection">
+<<<<<<< HEAD
         <argument key="C:\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Email">email</argument>
         <argument key="C:\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
       </argument>
       <argument>C:\Symfony\la_main_verte/templates</argument>
+=======
+        <argument key="C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Email">email</argument>
+        <argument key="C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
+      </argument>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte/templates</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     </service>
     <service id="twig.template_cache_warmer" class="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
@@ -4023,6 +4598,7 @@
     <service id="twig.loader.native_filesystem" class="Twig\Loader\FilesystemLoader" public="false">
       <tag name="twig.loader"/>
       <argument type="collection"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte</argument>
       <call method="addPath">
         <argument>C:\Symfony\la_main_verte\vendor\symfony\framework-bundle/Resources/views</argument>
@@ -4077,6 +4653,62 @@
       </call>
       <call method="addPath">
         <argument>C:\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte</argument>
+      <call method="addPath">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\framework-bundle/Resources/views</argument>
+        <argument>Framework</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\framework-bundle/Resources/views</argument>
+        <argument>!Framework</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-bundle/Resources/views</argument>
+        <argument>Security</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\security-bundle/Resources/views</argument>
+        <argument>!Security</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\web-profiler-bundle/Resources/views</argument>
+        <argument>WebProfiler</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\web-profiler-bundle/Resources/views</argument>
+        <argument>!WebProfiler</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>Doctrine</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>!Doctrine</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\debug-bundle/Resources/views</argument>
+        <argument>Debug</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\debug-bundle/Resources/views</argument>
+        <argument>!Debug</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte/templates</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>email</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>!email</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       </call>
     </service>
     <service id="twig.loader.chain" class="Twig\Loader\ChainLoader" public="false"/>
@@ -4102,7 +4734,11 @@
     <service id="twig.extension.code" class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="debug.file_link_formatter" on-invalid="ignore"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument>UTF-8</argument>
     </service>
     <service id="twig.extension.routing" class="Symfony\Bridge\Twig\Extension\RoutingExtension" public="false">
@@ -4154,7 +4790,11 @@
     <service id="twig.error_renderer.html" class="Symfony\Bridge\Twig\ErrorRenderer\TwigErrorRenderer" public="false">
       <argument type="service" id="twig"/>
       <argument type="service" id="error_handler.error_renderer.html"/>
+<<<<<<< HEAD
       <argument type="service" id=".1_~hn6bvxX"/>
+=======
+      <argument type="service" id=".1_~ZYPRXuy"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     </service>
     <service id="twig.extension.form" class="Symfony\Bridge\Twig\Extension\FormExtension" public="false">
       <tag name="twig.extension"/>
@@ -4172,9 +4812,15 @@
       <tag name="console.command" command="debug:twig"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="twig"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte</argument>
       <argument>%kernel.bundles_metadata%</argument>
       <argument>C:\Symfony\la_main_verte/templates</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte</argument>
+      <argument>%kernel.bundles_metadata%</argument>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte/templates</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
       <call method="setName">
         <argument>debug:twig</argument>
@@ -4197,7 +4843,11 @@
       <argument type="service" id="twig"/>
     </service>
     <service id="twig.missing_extension_suggestor" class="Twig\Extra\TwigExtraBundle\MissingExtensionSuggestor" public="false"/>
+<<<<<<< HEAD
     <service id=".2_HtmlDumper~36Vt_ws" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
+=======
+    <service id=".2_HtmlDumper~mL3cBK_" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument>null</argument>
       <argument>UTF-8</argument>
       <argument>1</argument>
@@ -4208,14 +4858,22 @@
         </argument>
       </call>
     </service>
+<<<<<<< HEAD
     <service id=".1_NonceGenerator~36Vt_ws" class="Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator" public="false"/>
+=======
+    <service id=".1_NonceGenerator~mL3cBK_" class="Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator" public="false"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController" public="true">
       <argument type="service" id="router.default" on-invalid="null"/>
       <argument type="service" id="profiler" on-invalid="null"/>
       <argument type="service" id="twig"/>
       <argument>%data_collector.templates%</argument>
       <argument type="service" id="web_profiler.csp.handler"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     </service>
     <service id="web_profiler.controller.router" class="Symfony\Bundle\WebProfilerBundle\Controller\RouterController" public="true">
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -4227,11 +4885,19 @@
       <argument type="service" id="profiler" on-invalid="null"/>
     </service>
     <service id="web_profiler.csp.handler" class="Symfony\Bundle\WebProfilerBundle\Csp\ContentSecurityPolicyHandler" public="false">
+<<<<<<< HEAD
       <argument type="service" id=".1_NonceGenerator~36Vt_ws"/>
     </service>
     <service id="twig.extension.webprofiler" class="Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id=".2_HtmlDumper~36Vt_ws"/>
+=======
+      <argument type="service" id=".1_NonceGenerator~mL3cBK_"/>
+    </service>
+    <service id="twig.extension.webprofiler" class="Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id=".2_HtmlDumper~mL3cBK_"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     </service>
     <service id="debug.file_link_formatter.url_format" class="string" public="false">
       <argument type="service" id="router.default"/>
@@ -4437,7 +5103,11 @@
       <argument type="collection"/>
       <factory service="doctrine.dbal.connection_factory" method="createConnection"/>
     </service>
+<<<<<<< HEAD
     <service id=".1_ServiceLocator~vR_R_lF" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+=======
+    <service id=".1_ServiceLocator~VFiIUk9" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="collection"/>
     </service>
     <service id="doctrine.orm.proxy_cache_warmer" class="Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer" public="false">
@@ -4614,7 +5284,11 @@
         <argument type="service" id="doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
+<<<<<<< HEAD
         <argument>C:\Symfony\la_main_verte\var\cache\dev/doctrine/orm/Proxies</argument>
+=======
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/doctrine/orm/Proxies</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -4644,7 +5318,11 @@
     <service id="doctrine.orm.default_annotation_metadata_driver" class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
       <argument type="service" id="annotations.cached_reader"/>
       <argument type="collection">
+<<<<<<< HEAD
         <argument>C:\Symfony\la_main_verte\src\Entity</argument>
+=======
+        <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\src\Entity</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       </argument>
     </service>
     <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain" public="false">
@@ -4812,7 +5490,11 @@
     <service id="monolog.processor.psr_log_message" class="Monolog\Processor\PsrLogMessageProcessor" public="false"/>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
       <tag name="kernel.reset" method="reset"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte\var\log/dev.log</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\log/dev.log</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument>100</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -4830,6 +5512,7 @@
       <argument type="collection"/>
       <argument type="collection"/>
     </service>
+<<<<<<< HEAD
     <service id=".6_HtmlDescriptor~eFj0eIX" class="Symfony\Component\VarDumper\Command\Descriptor\HtmlDescriptor" public="false">
       <argument type="service" id="var_dumper.html_dumper"/>
     </service>
@@ -4848,6 +5531,26 @@
     <service id=".1_SourceContextProvider~eFj0eIX" class="Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider" public="false">
       <argument>UTF-8</argument>
       <argument>C:\Symfony\la_main_verte</argument>
+=======
+    <service id=".6_HtmlDescriptor~glTqXcm" class="Symfony\Component\VarDumper\Command\Descriptor\HtmlDescriptor" public="false">
+      <argument type="service" id="var_dumper.html_dumper"/>
+    </service>
+    <service id=".5_CliDescriptor~glTqXcm" class="Symfony\Component\VarDumper\Command\Descriptor\CliDescriptor" public="false">
+      <argument type="service" id="var_dumper.contextualized_cli_dumper.inner"/>
+    </service>
+    <service id=".4_CliContextProvider~glTqXcm" class="Symfony\Component\VarDumper\Dumper\ContextProvider\CliContextProvider" public="false"/>
+    <service id=".3_RequestContextProvider~glTqXcm" class="Symfony\Component\VarDumper\Dumper\ContextProvider\RequestContextProvider" public="false">
+      <argument type="service" id="request_stack"/>
+    </service>
+    <service id=".2_SourceContextProvider~glTqXcm" class="Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider" public="false">
+      <argument>UTF-8</argument>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte</argument>
+      <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
+    </service>
+    <service id=".1_SourceContextProvider~glTqXcm" class="Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider" public="false">
+      <argument>UTF-8</argument>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
     </service>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
@@ -4889,7 +5592,11 @@
     <service id="var_dumper.contextualized_cli_dumper" class="Symfony\Component\VarDumper\Dumper\ContextualizedDumper" public="false">
       <argument type="service" id="var_dumper.contextualized_cli_dumper.inner"/>
       <argument type="collection">
+<<<<<<< HEAD
         <argument key="source" type="service" id=".1_SourceContextProvider~eFj0eIX"/>
+=======
+        <argument key="source" type="service" id=".1_SourceContextProvider~glTqXcm"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       </argument>
     </service>
     <service id="var_dumper.html_dumper" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
@@ -4905,9 +5612,15 @@
     <service id="var_dumper.server_connection" class="Symfony\Component\VarDumper\Server\Connection" public="false">
       <argument>tcp://%env(VAR_DUMPER_SERVER)%</argument>
       <argument type="collection">
+<<<<<<< HEAD
         <argument key="source" type="service" id=".2_SourceContextProvider~eFj0eIX"/>
         <argument key="request" type="service" id=".3_RequestContextProvider~eFj0eIX"/>
         <argument key="cli" type="service" id=".4_CliContextProvider~eFj0eIX"/>
+=======
+        <argument key="source" type="service" id=".2_SourceContextProvider~glTqXcm"/>
+        <argument key="request" type="service" id=".3_RequestContextProvider~glTqXcm"/>
+        <argument key="cli" type="service" id=".4_CliContextProvider~glTqXcm"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       </argument>
     </service>
     <service id="var_dumper.dump_server" class="Symfony\Component\VarDumper\Server\DumpServer" public="false">
@@ -4920,8 +5633,13 @@
       <tag name="container.no_preload"/>
       <argument type="service" id="var_dumper.dump_server"/>
       <argument type="collection">
+<<<<<<< HEAD
         <argument key="cli" type="service" id=".5_CliDescriptor~eFj0eIX"/>
         <argument key="html" type="service" id=".6_HtmlDescriptor~eFj0eIX"/>
+=======
+        <argument key="cli" type="service" id=".5_CliDescriptor~glTqXcm"/>
+        <argument key="html" type="service" id=".6_HtmlDescriptor~glTqXcm"/>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       </argument>
       <call method="setName">
         <argument>server:dump</argument>
@@ -4938,8 +5656,13 @@
       <argument type="service" id="filesystem"/>
       <argument type="service" id="maker.autoloader_util"/>
       <argument type="service" id="maker.file_link_formatter"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte</argument>
       <argument>C:\Symfony\la_main_verte/templates</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte</argument>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte/templates</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     </service>
     <service id="maker.autoloader_finder" class="Symfony\Bundle\MakerBundle\Util\ComposerAutoloaderFinder" public="false">
       <argument>App</argument>
@@ -5005,7 +5728,11 @@
       <tag name="maker.command"/>
       <argument type="service" id="maker.file_manager"/>
       <argument type="service" id="maker.doctrine_helper"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="maker.generator"/>
       <argument type="service" id="maker.entity_class_generator"/>
     </service>
@@ -5069,7 +5796,11 @@
     </service>
     <service id="maker.maker.make_migration" class="Symfony\Bundle\MakerBundle\Maker\MakeMigration" public="false">
       <tag name="maker.command"/>
+<<<<<<< HEAD
       <argument>C:\Symfony\la_main_verte</argument>
+=======
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
     </service>
     <service id="symfonycasts.verify_email.token_generator" class="SymfonyCasts\Bundle\VerifyEmail\Generator\VerifyEmailTokenGenerator" public="false">
       <argument>%env(APP_SECRET)%</argument>
@@ -6392,59 +7123,107 @@
       </argument>
     </service>
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter" public="false">
+<<<<<<< HEAD
       <argument>U1n6Ue6vvC</argument>
       <argument>0</argument>
       <argument>C:\Symfony\la_main_verte\var\cache\dev/pools</argument>
+=======
+      <argument>SKlDEoSpCg</argument>
+      <argument>0</argument>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/pools</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
     </service>
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
+<<<<<<< HEAD
       <argument>u1fCESsZpi</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
       <argument>C:\Symfony\la_main_verte\var\cache\dev/pools</argument>
+=======
+      <argument>DK0IMYDWf2</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/pools</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
+<<<<<<< HEAD
       <argument>22-9f14BSh</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
       <argument>C:\Symfony\la_main_verte\var\cache\dev/pools</argument>
+=======
+      <argument>KCDZpChIG0</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/pools</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
+<<<<<<< HEAD
       <argument>2D-Zc1jpES</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
       <argument>C:\Symfony\la_main_verte\var\cache\dev/pools</argument>
+=======
+      <argument>I06u7iJrdD</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/pools</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
+<<<<<<< HEAD
       <argument>TXwsn5cwkq</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
       <argument>C:\Symfony\la_main_verte\var\cache\dev/pools</argument>
+=======
+      <argument>84NImzPbci</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/pools</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.property_info.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
+<<<<<<< HEAD
       <argument>yEJs+kYDL4</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
       <argument>C:\Symfony\la_main_verte\var\cache\dev/pools</argument>
+=======
+      <argument>AZRZfzjctD</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/pools</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.security_expression_language.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
+<<<<<<< HEAD
       <argument>cMO3soBlUB</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
       <argument>C:\Symfony\la_main_verte\var\cache\dev/pools</argument>
+=======
+      <argument>p0R2rqXSIc</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>C:\Users\kaber\Desktop\Formation\Symfony\la_main_verte\var\cache\dev/pools</argument>
+>>>>>>> 7f5bbea9cacb640e5dd14f00341227497667459c
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
