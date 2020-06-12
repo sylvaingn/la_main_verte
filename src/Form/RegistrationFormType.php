@@ -29,14 +29,7 @@ class RegistrationFormType extends AbstractType
             ->add ('lastname', TextType::class, [
                 'label' => 'Nom'
             ])
-            // ->add ('address', EntityType::class, [
-            //     'class'         => EntityType::class,
-            //     'choice_label'  => 'line'
-            // ])
-            // ->add ('address', TextType::class, [
-            //     'class' => Address::class,
-            //     'choice_label' => 'line2'
-            // ])
+            ->add ('address', AddressType::class)
             
             ->add ('phone', TextType::class, [
                 'label' => 'Telephone'
@@ -45,7 +38,16 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Email'
             ])
             ->add('photo', FileType::class, [
-                'label' => 'Ajoutez votre photo'
+                'label' => 'Ajoutez votre photo',
+                'required' => false,
+                'constraints' => [
+                    'maxSize' => '1024k',
+                    'mimeTypes' => [
+                        'image/jpeg',
+                        'image/png'
+                    ],
+                    'mimeTypesMessage' => "Merci d'uploader un fichier en .jpg ou png !",
+                ]
             ])
             
             ->add('agreeTerms', CheckboxType::class, [
@@ -53,7 +55,7 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Acceptez les conditions d\'utilisation du site',
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => "Merci d'accepter les conditions d'utilisation du site",
                     ]),
                 ],
             ])
@@ -63,11 +65,11 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Merci de renseigner un mot de passe',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'Votre mot de passe doit faire au moins 6 caractères',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),

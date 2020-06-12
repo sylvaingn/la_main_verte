@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Address;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,10 +18,12 @@ class AddressType extends AbstractType
             ->add('zipcode')
             ->add('line')
             ->add('line2')
-            ->add('latitude')
-            ->add('longitude')
-            ->add('drive')
-        ;
+            ->add('latitude', HiddenType::class, [
+                'data' => '80.00'
+            ])
+            ->add('longitude', HiddenType::class, [
+                'data' => '80.00'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
