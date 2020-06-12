@@ -1,0 +1,173 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<h2> Bienvenue sur votre Espace Client </h2>
+
+<div><img src="">PHOTO UTILISATEUR</img></div>
+
+<h5>Petit récapitulatif de vos informations client : </h5>
+
+<div>
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Adresse (line)</th>
+            <th>Adresse (line2)</th>
+            <th>Code Postal</th>
+            <th>Ville</th>
+            <th>Telephone</th>
+
+        </tr>
+        <tr>
+            <td>Morel</td>
+            <td>Jonathan</td>
+            <td>jonathan@example.com</td>
+            <td>Rue xxxxx</td>
+            <td></td>
+            <td>69003</td>
+            <td>Lyon</td>
+            <td>06xxxxxxx</td>
+        </tr>
+    </table>
+</div>
+
+<p>
+
+<div>
+    <button>Modifier mes informations</button>
+</div>
+
+<p>
+
+<h5>Vos dernières commandes : </h5>
+
+<div>
+    <table>
+        <tr>
+            <th>Id de la commande</th>
+            <th>Date de la commande</th>
+            <th>Prix Total</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>#</td>
+            <td>19/04/2020</td>
+            <td>120 euros</td>
+            <td>Cliquez-ici</td> 
+            
+        </tr>
+    </table>
+
+</div>
+
+<p>
+
+<div>
+
+    <button>Supprimer mon compte</button>
+
+</div>
+
+****************
+
+<h5>Petit récapitulatif de vos informations Producteur : </h5>
+
+<div>
+    <table>
+        <tr>
+            <th>Nom de votre société</th>
+            <th>N° SIRET</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Adresse (line)</th>
+            <th>Adresse (line2)</th>
+            <th>Code Postal</th>
+            <th>Ville</th>
+            <th>Telephone</th>
+
+
+        </tr>
+        <tr>
+            <td>Au Petit Producteur</td>
+            <td>802 954 785 00028</td>
+            <td>Morel</td>
+            <td>Jonathan</td>
+            <td>jonathan@example.com</td>
+            <td>Rue xxxxx</td>
+            <td></td>
+            <td>69003</td>
+            <td>Lyon</td>
+            <td>06xxxxxxx</td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    <button>Modifier mes informations</button>
+</div>
+
+<div>
+    Consulter les avis
+</div>
+
+<p>
+
+<h5>Mon stock de produits : </h5>
+
+<div>
+    <table>
+        <tr>
+            <th>Nom du Produit</th>
+            <th>Quantité</th>
+            <th>Prix Unitaire</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+
+        </tr>
+        <tr>
+            <td>Carottes</td>
+            <td>20</td>
+            <td>5 euros</td>
+            <td><button>Modifier</button></td>
+            <td><button>Supprimer</button></td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+<p>
+
+
+
+
+{# {% if is_granted ("ROLE_CLIENT") %}
+
+
+
+
+
+
+{% endif %} #}
+
+
+
+
+{# {% if is_granted ("ROLE_PRODUCTEUR")%}
+
+
+{% endif %} #}
+
+
+
+
+
+{% endblock %}
