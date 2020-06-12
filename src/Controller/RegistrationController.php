@@ -32,8 +32,11 @@ class RegistrationController extends AbstractController
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
+
+
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
+           //  $user->getAddress()->setLine($request->request->get('adress'));
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
@@ -50,12 +53,12 @@ class RegistrationController extends AbstractController
                 (new TemplatedEmail())
                     ->from(new Address('admin@lamainverte.com', 'La Main Verte'))
                     ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
+                    ->subject('LaMainVerte - Merci de confirmer votre Email !')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('_profiler_home');
+            return $this->redirectToRoute('app_index');
         }
 
         return $this->render('registration/register.html.twig', [
