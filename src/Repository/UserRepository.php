@@ -53,6 +53,20 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
     */
 
+    public function findCompanies($city, $word)
+    {
+        return $this->createQueryBuilder('u')
+            ->innerJoin('u.address', 'a')
+            ->innerJoin('u.company', 'c')
+            ->where('((a.city like :city OR a.zipcode like :city) AND (c.description like :word OR c.name like :word))')
+            ->setParameter('city', "%".$city."%")
+            ->setParameter('word', "%".$word."%")
+            ->getQuery()
+            ->getResult();
+    }
+
+
+
     /*
     public function findOneBySomeField($value): ?User
     {
