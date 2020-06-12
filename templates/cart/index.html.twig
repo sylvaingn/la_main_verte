@@ -6,46 +6,52 @@
 
 <h1>Votre panier :</h1>
 
-{% if items | length >0 %}
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Produit</th>
-				<th>Prix</th>
-				<th>Quantité</th>
-				<th>Total</th>
-				<th>actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for item in items %}
+	{% if items | length >0 %}
+		<table class="table">
+			<thead>
 				<tr>
-					<td>{{ item.product.name }}</td>
-					<td>{{ item.product.price }}</td>
-					<td>{{ item.quantity }} x {{ item.conditioning }}</td>
-					{# // prévoir boutons "+" et "-" pour modifier les qtés avec recalcul du total ligne et total général #}
-					<td>{{ item.product.price * item.quantity }}</td>
-					<td>
-						<a href="{{ path("cart_remove", {'id': item.stock.id}) }}" class="btn">
-							{# //fonction définie dans CartController #}
-							<i class="fa fa-trash"></i>
-						</a>
-					</td>
+					<th>Produit</th>
+					<th>Quantité</th>
+					<th>Conditionnement</th>
+					<th>Prix</th>
+					<th>Total</th>
+					<th>actions</th>
 				</tr>
-			{% endfor %}
-		</tbody>
-		<tfoot>
-			{# // total du panier #}
-			<tr>
-				<td colspan="3" class="text-right">Total :
-				</td>
-				{# //on regroupe name:price/quantity #}
-				<td>{{ total }}</td>
-				<td></td>
-			</tr>
-		</tfoot>
-	</table>
-{% else %}
-	<p>
-		Panier vide !</p>
-{% endif %}
+			</thead>
+			<tbody>
+				{% for item in items %}
+					<tr>
+						<td>nom</td>
+						{# <td>{{ item.id }}</td> #}
+						<td>{{ item.quantity }}</td>
+						{# <td>{{ item.conditioning }}</td> #}
+						<td>unité</td>
+						<td>prix</td>
+						<td>prix * unité</td>
+						<td>
+							<a href="{{ path("cart_remove", {'id': item.stock.id}) }}" class="btn">
+								{# //fonction définie dans CartController #}
+								<i class="fa fa-trash"></i>
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			<tfoot>
+				{# // total du panier #}
+				<tr>
+					<td colspan="4" class="text-right">Total :
+					</td>
+					{# //on regroupe name:price/quantity #}
+					<td>{{ total }}</td>
+					<td></td>
+				</tr>
+			</tfoot>
+		</table>
+	{% else %}
+		<p>
+			Panier vide !
+		</p>
+	{% endif %}
+
+{% endblock %}

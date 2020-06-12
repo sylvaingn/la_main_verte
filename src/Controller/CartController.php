@@ -11,17 +11,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class CartController extends AbstractController
 {
 
-/**
- * @Route("/panier", name="cart_index")
- *  */
+    /**
+     * @Route("/panier", name="cart_index")
+     */
    public function index(SessionInterface $session, StockRepository $stockRepository){
-    // on utlise la session et on lui demande de recupérer le panier :
+    // on utilise la session et on lui demande de recupérer le panier :
     $panier = $session->get('panier', []); 
     //  par défaut on prend un panier vide
 
     //à partir de ce tableau ($panier) qui ne contient que id et qté, on va créer un nouveau tableau
     //qu'on va enrichir avec les data (nom, description, image, ...)
     $panierWithData = [];
+
     foreach($panier as $id => $quantity)
     {
         $panierWithData[] = [
@@ -30,23 +31,26 @@ class CartController extends AbstractController
         ];
     }
 
-    //on calcule le motant total du panier
+    //on calcule le montant total du panier
     $total=0;
     foreach($panierWithData as $item){
-        $totalItem = $item['stock']->getProce() * $item['quantity'];
+        $totalItem = $item['stock']->getPrice() * $item['quantity'];
         $total += $totalItem;
     }
+
+    // dd($panierWithData);
 
     return $this->render('cart/index.html.twig', [
         'items' =>  $panierWithData,
         'total' =>  $total
     ]);
+
 }
 
     /**
      * @Route("/panier/add/{id}", name="cart_add")
      */
-    public function add($id, SessionInterface $session)
+    public function add($id, SessionInterface $session, StockRepository $stockRepository)
     {
         // on va passer en paramètre l'id du produit à ajouter au panier ($id)
 
@@ -66,7 +70,14 @@ class CartController extends AbstractController
         // on sauvegarde le panier dans la session au fur et à mesure des ajouts
         // donc au demande a 'session' de remplacer notre panier précédent par le nouveau
         $session->set('panier', $panier);
-        return $this->redirectToRoute("cart_index"); // affichage du panier à chaque nouvel article
+
+        //lignes pour test à supprimer après test
+        $id_company = 1;
+        $stocks = $stockRepository->findBy(['company' => $id_company]);
+        return $this->render('stock/ordered.html.twig', ['stocks' => $stocks]);
+
+        // ligne suivante à remettre après test
+        // return $this->redirectToRoute("cart_index"); // affichage du panier à chaque nouvel article
     }
 
     /**
