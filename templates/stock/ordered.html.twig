@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stock disponible
+{% endblock %}
+
+{% block body %}
+	<h1>Stock disponible</h1>
+
+	<table class="table">
+        <tr>
+            <th>Nom</th>
+            <th>Quantité disponible</th>
+            <th>Unité</th>
+            <th>Prix</th>
+            <th>ajouter au panier</th>
+        </tr>
+
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    {% if stock.description is null %}
+                        <td>{{ stock.product.name}}</td>
+                    {% else %}
+                        <td>{{ stock.description }}</td>
+                    {% endif %}
+                    <td>{{ stock.quantity }}</td>
+                    <td>{{ stock.conditioning }}</td>
+                    <td>{{ stock.price }}</td>
+                    <td>
+                        <a href="{{ path('cart_add', {'id': stock.id}) }}">+</a>
+                        <a href="{{ path('cart_remove', {'id': stock.id}) }}">-</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">aucun stock disponible</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+
