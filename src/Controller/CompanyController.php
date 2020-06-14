@@ -112,12 +112,13 @@ class CompanyController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="company_show", methods={"GET"})
+     * @Route("/{company}", name="company_show", methods={"GET"})
      */
     public function show(Company $company): Response
     {
         return $this->render('company/show.html.twig', [
             'company' => $company,
+
         ]);
     }
 }
