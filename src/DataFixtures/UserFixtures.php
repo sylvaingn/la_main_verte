@@ -33,6 +33,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             $user->setFirstname($faker->firstname);
             $user->setLastname($faker->lastname);
             $user->setAddress($this->addressRepository->find(rand(1,1000)));
+            $user->setIsVerified(rand(0,1));
             
 
             $manager->persist($user);

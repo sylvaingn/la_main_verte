@@ -14,7 +14,7 @@
         <h5 class="card-title">{{user.company.name}}</h5>
         <h6>{{user.address.city}}</h6>
         <p> {{user.company.description}}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="{{ path('company_show', {company: user.company.id}) }}" class="btn btn-primary">Go somewhere</a>
     </div>
 </div>
 
