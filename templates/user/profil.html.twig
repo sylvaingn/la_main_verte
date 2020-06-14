@@ -4,13 +4,22 @@
 
 {% block body %}
 
+{% if is_granted ("ROLE_CLIENT") %}
+
+<div class="my-4">
 <h2> Bienvenue sur votre Espace Client </h2>
+</div>
 
-<div><img src="">PHOTO UTILISATEUR</img></div>
+<div class="my-4">
+<img src="{{asset('assets/img/user-photo' ~ user.photo)}}" alt="Photo Utilisateur"></img>
+</div>
 
+<div class="my-4">
 <h5>Petit récapitulatif de vos informations client : </h5>
+</div>
 
-<div>
+
+<div class="my-4">
     <table>
         <tr>
             <th>Nom</th>
@@ -24,29 +33,31 @@
 
         </tr>
         <tr>
-            <td>Morel</td>
-            <td>Jonathan</td>
-            <td>jonathan@example.com</td>
-            <td>Rue xxxxx</td>
-            <td></td>
-            <td>69003</td>
-            <td>Lyon</td>
-            <td>06xxxxxxx</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.firstname}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.address.line}}</td>
+            <td>{{user.address.line2}}</td>
+            <td>{{user.address.zipcode}}</td>
+            <td>{{user.address.city}}</td>
+            <td>{{user.phone}}</td>
         </tr>
     </table>
 </div>
 
 <p>
 
-<div>
+<div class="my-4">
     <button>Modifier mes informations</button>
 </div>
 
 <p>
 
+<div class="my-4">
 <h5>Vos dernières commandes : </h5>
+</div>
 
-<div>
+<div class="my-4">
     <table>
         <tr>
             <th>Id de la commande</th>
@@ -67,17 +78,28 @@
 
 <p>
 
-<div>
-
+<div class="my-4">
     <button>Supprimer mon compte</button>
-
 </div>
 
-****************
+{% endif %}
 
-<h5>Petit récapitulatif de vos informations Producteur : </h5>
+{% if is_granted ("ROLE_PRODUCTEUR") %}
 
-<div>
+<div class="my-4">
+<h2> Bienvenue sur votre Espace Producteur</h2>
+</div>
+
+
+<div class="my-4">
+<img src="" width="150" height="150" alt="Photo Utilisateur"></img>
+</div>
+
+<div class="my-4">
+<h5>Petit récapitulatif de vos informations Producteur :</h5>
+</div>
+
+<div class="my-4">
     <table>
         <tr>
             <th>Nom de votre société</th>
@@ -90,8 +112,6 @@
             <th>Code Postal</th>
             <th>Ville</th>
             <th>Telephone</th>
-
-
         </tr>
         <tr>
             <td>Au Petit Producteur</td>
@@ -108,19 +128,21 @@
     </table>
 </div>
 
-<div>
+<div class="my-4">
     <button>Modifier mes informations</button>
 </div>
 
-<div>
-    Consulter les avis
+<div class="my-4">
+    <a href="">Consulter les avis</a>
 </div>
 
 <p>
 
+<div class="my-4">
 <h5>Mon stock de produits : </h5>
+</div>
 
-<div>
+<div class="my-4">
     <table>
         <tr>
             <th>Nom du Produit</th>
@@ -140,34 +162,34 @@
     </table>
 </div>
 
+<div class="my-4"><button>Ajouter un stock</button></div>
 
+<div class="my-4">
+<h5>Liste des points Relais : </h5>
+</div>
 
+<div class="my-4">
+    <table>
+        <tr>
+            <th>Nom du Point Relai</th>
+            <th>Adresse1</th>
+            <th>Adresse2</th>
+            <th>Code Postal</th>
+            <th>Ville</th>
 
+        </tr>
+        <tr>
+            <td>Relai du Vent</td>
+            <td>34, rue des dames</td>
+            <td></td>
+            <td>69003</td>
+            <td>Lyon</td>
+        </tr>
+    </table>
+</div>
 
-<p>
-
-
-
-
-{# {% if is_granted ("ROLE_CLIENT") %}
-
-
-
-
-
-
-{% endif %} #}
-
-
-
-
-{# {% if is_granted ("ROLE_PRODUCTEUR")%}
-
-
-{% endif %} #}
-
-
-
-
+<div class="my-4"><button>Ajouter un Point Relai</button></div>
+<div class="my-4"><button>Supprimer mon compte</button></div>
+{% endif %}
 
 {% endblock %}
