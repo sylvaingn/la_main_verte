@@ -40,11 +40,9 @@
 			<tfoot>
 				{# // total du panier #}
 				<tr>
-					<td colspan="4" class="text-right">Total :
-					</td>
-					{# //on regroupe name:price/quantity #}
+					<td colspan="4" class="text-right">Total : </td>
 					<td>{{ total }} €</td>
-					<td><a id="confirmOrdered" href="#" class="btn btn-sm btn-primary">Passer la commande</a></td>
+					<td><a id="confirmOrdered" href="{{path("createCommande")}}" class="btn btn-sm btn-primary">Passer la commande</a></td>
 				</tr>
 			</tfoot>
 		</table>
