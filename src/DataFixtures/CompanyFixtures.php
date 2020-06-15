@@ -27,16 +27,14 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
         $faker = Faker\Factory::create('fr_FR');
 
         // on créé 10 adresses
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 1; $i <= 100; $i++) {
             $company = new Company();
 
             $company->setName($faker->company);
             $company->setSiret($faker->siret);
             $company->setDescription($faker->realText);
-            $company->setValidated("true");
-            $company->setUser($this->userRepository->find(rand(1,1000)));
-
-            
+            $company->setValidated(true);
+            $company->setUser($this->userRepository->find($i));
 
             $manager->persist($company);
         }

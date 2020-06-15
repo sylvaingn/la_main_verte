@@ -2,14 +2,14 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\User;
+use App\Entity\Drive;
 use App\Repository\AddressRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Faker;
 
-class UserFixtures extends Fixture implements DependentFixtureInterface
+class DriveFixtures extends Fixture implements DependentFixtureInterface
 {
     private $addressRepository;
 
@@ -25,18 +25,14 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $faker = Faker\Factory::create('fr_FR');
 
         // on créé 10 adresses
-        for ($i = 0; $i < 1000; $i++) {
-            $user = new User();
+        for ($i = 1; $i <= 100; $i++) {
+            $drive = new Drive();
 
-            $user->setEmail($faker->email);
-            $user->setPassword($faker->password);
-            $user->setFirstname($faker->firstname);
-            $user->setLastname($faker->lastname);
-            $user->setAddress($this->addressRepository->find(rand(1,999)));
-            $user->setIsVerified(rand(0,1));
+            $drive->setName($faker->company);
+            $drive->setAddress($this->addressRepository->find($i));
             
 
-            $manager->persist($user);
+            $manager->persist($drive);
         }
 
         $manager->flush();
