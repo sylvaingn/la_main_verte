@@ -36,6 +36,16 @@ class OrderedRepository extends ServiceEntityRepository
     }
     */
 
+    public function findUserOrdereds($value)
+    {
+        return $this->createQueryBuilder('o')
+            ->innerJoin('o.user', 'u')
+            ->andWhere('u.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult();
+    }
+
     /*
     public function findOneBySomeField($value): ?Ordered
     {

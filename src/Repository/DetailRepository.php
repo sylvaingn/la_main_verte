@@ -36,6 +36,20 @@ class DetailRepository extends ServiceEntityRepository
     }
     */
 
+
+    public function findOrderedDetails($value)
+    {
+        return $this->createQueryBuilder('d')
+            ->innerJoin('d.ordered','o')
+            ->innerJoin('d.stock','s')
+            ->innerJoin('s.product','p')
+            ->andWhere('o.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     /*
     public function findOneBySomeField($value): ?Detail
     {

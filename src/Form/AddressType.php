@@ -19,7 +19,8 @@ class AddressType extends AbstractType
             ])
             ->add('line2', TextType::class,
             [
-                'label' => 'Complément d\'adresse'
+                'label' => 'Complément d\'adresse',
+                'required' => false
             ])
             ->add('zipcode', TextType::class,[
                 'label' => 'Code Postal'
