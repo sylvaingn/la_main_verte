@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Stock disponible</h1>
+	<h1>résultat du producteur choisi</h1>
 
 	<table class="table">
         <tr>
@@ -23,13 +23,20 @@
                     {% else %}
                         <td>{{ stock.description }}</td>
                     {% endif %}
-                    <td>{{ stock.quantity }}</td>
+                    {% if stock.quantity == 0 %}
+                        <td><i>épuisé</i></td>
+                    {% else %}                        
+                        <td>{{ stock.quantity }}</td>
+                    {% endif %}
                     <td>{{ stock.conditioning }}</td>
-                    <td>{{ stock.price }}</td>
+                    <td>{{ stock.price }} €</td>
+                    {% if stock.quantity == 0 %}
+                    <td> </td>
+                    {% else %}
                     <td>
-                        <a href="{{ path('cart_add', {'id': stock.id}) }}">+</a>
-                        <a href="{{ path('cart_remove', {'id': stock.id}) }}">-</a>
+                        <a id="addStockOnCart" href="{{ path('cart_add', {'id': stock.id}) }}"><i class="fa fa-cart-plus"></i></a>
                     </td>
+                    {% endif %}
                 </tr>
             {% else %}
                 <tr>
