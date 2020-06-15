@@ -9,7 +9,8 @@
 <h1>{{company.name}}</h1>
 
 <div class="card mb-3">
-    <img src="{{ asset('assets/img/etalage primeur.jpg') }}" class="card-img-top" style="height: 80px; width: 100px;" alt="...">
+    <img src="{{ asset('assets/img/etalage primeur.jpg') }}" class="card-img-top" style="height: 80px; width: 100px;"
+        alt="...">
     <div class="card-body">
         <h5>{{company.averageRating|round(1, 'floor')}}{% if company.averageRating is not null %}/10{% endif %}</h5>
         <p class="card-text">{{company.description}}</p>
@@ -61,8 +62,29 @@
 
 {# Affichage commentaires producteur #}
 
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Notes</th>
+            <th scope="col">Commentaires</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        {% for review in reviews %}
+
+        <tr>
+            <th scope="row">{{review.rating}}</th>
+            <td>{{review.comment}}</td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+</table>
 
 
+{{ include('review/_form.html.twig') }}
 
 
 <a href="{{ path('company_index') }}">back to list</a>
