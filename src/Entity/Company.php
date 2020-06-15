@@ -261,4 +261,22 @@ class Company
 
         return $this;
     }
+
+
+    public function getAverageRating(){
+
+        $avis = $this->getReview();
+
+        $totalAvis = 0;
+        $nbAvis = 0;
+
+        foreach ($avis as $avi) {
+            $totalAvis += $avi->getRating();
+            $nbAvis++;
+        }
+
+        if ($nbAvis > 0) { return $totalAvis/$nbAvis; }
+
+        return null;
+    }
 }

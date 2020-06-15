@@ -13,7 +13,9 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File as ConstraintsFile;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -41,12 +43,14 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Ajoutez votre photo',
                 'required' => false,
                 'constraints' => [
-                    'maxSize' => '1024k',
-                    'mimeTypes' => [
-                        'image/jpeg',
-                        'image/png'
-                    ],
-                    'mimeTypesMessage' => "Merci d'uploader un fichier en .jpg ou png !",
+                    new ConstraintsFile([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png'
+                        ],
+                        'mimeTypesMessage' => "Merci d'uploader un fichier en .jpg ou png !",  
+                    ])
                 ]
             ])
             
