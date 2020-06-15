@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Ordered;
 use App\Form\OrderedType;
+use App\Repository\DetailRepository;
 use App\Repository\OrderedRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,10 +52,11 @@ class OrderedController extends AbstractController
     /**
      * @Route("/{id}", name="ordered_show", methods={"GET"})
      */
-    public function show(Ordered $ordered): Response
+    public function show(Ordered $ordered, DetailRepository $detailRepository): Response
     {
         return $this->render('ordered/show.html.twig', [
             'ordered' => $ordered,
+            'details' => $detailRepository->findOrderedDetails($ordered->getId()),
         ]);
     }
 

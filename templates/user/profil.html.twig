@@ -6,77 +6,70 @@
 
 {% if is_granted ("ROLE_CLIENT") %}
 
+
 <div class="my-4">
-<h2> Bienvenue sur votre Espace Client </h2>
+    <h2> Bienvenue sur votre Espace Client </h2>
 </div>
 
 <div class="my-4">
-<img src="{{asset('assets/img/user-photo' ~ user.photo)}}" alt="Photo Utilisateur"></img>
+    <img src="{{ asset('assets/img/user_photo/' ~ app.user.photo ) }}" height="180px" alt="Photo Utilisateur"></img>
+
 </div>
 
 <div class="my-4">
-<h5>Petit récapitulatif de vos informations client : </h5>
+    <h5>Petit récapitulatif de vos informations client : </h5>
+</div>
+
+<ul class="list-group">
+    <li class="list-group-item py-0"><strong>Nom :</strong> {{app.user.lastname}}</li>
+    <li class="list-group-item"><strong>Prénom :</strong> {{app.user.firstname}}</li>
+    <li class="list-group-item"><strong>Email :</strong> {{app.user.email}}</li>
+    <li class="list-group-item"><strong>Adresse :</strong> {{app.user.address.line}}</li>
+    <li class="list-group-item"><strong>Complément d'adresse :</strong> {{app.user.address.line2}}</li>
+    <li class="list-group-item"><strong>Code postal :</strong> {{app.user.address.zipcode}}</li>
+    <li class="list-group-item"><strong>Ville :</strong> {{app.user.address.city}}</li>
+    <li class="list-group-item"><strong>N° téléphone :</strong> {{app.user.phone}}</li>
+</ul>
+
+<div class="my-4">
+    <a href="{{ path('profil_edit', {user:app.user.id}) }}"><button>Modifier mes informations</button></a>
 </div>
 
 
 <div class="my-4">
-    <table>
-        <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Email</th>
-            <th>Adresse (line)</th>
-            <th>Adresse (line2)</th>
-            <th>Code Postal</th>
-            <th>Ville</th>
-            <th>Telephone</th>
-
-        </tr>
-        <tr>
-            <td>{{user.lastname}}</td>
-            <td>{{user.firstname}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.address.line}}</td>
-            <td>{{user.address.line2}}</td>
-            <td>{{user.address.zipcode}}</td>
-            <td>{{user.address.city}}</td>
-            <td>{{user.phone}}</td>
-        </tr>
-    </table>
+    <h5>Vos dernières commandes : </h5>
 </div>
 
-<p>
+
 
 <div class="my-4">
-    <button>Modifier mes informations</button>
-</div>
 
-<p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id Commande</th>
+                <th scope="col">Date de la commande</th>
+                <th scope="col">Prix total</th>
+                <th scope="col">Détails</th>
+            </tr>
+        </thead>
+        <tbody>
 
-<div class="my-4">
-<h5>Vos dernières commandes : </h5>
-</div>
+            {% for ordered in ordereds %}
+            <tr>
+                <td>{{ordered.id}}</td>
+                <td>{{ordered.createdAt|date("d/m/Y")}}</td>
+                <td>{{ordered.totalPrice}}</td>
+                <td> <a href="{{ path('ordered_show', {id : ordered.id})}}">Cliquez-ici</a> </td>
+            </tr>
+            {% endfor %}
 
-<div class="my-4">
-    <table>
-        <tr>
-            <th>Id de la commande</th>
-            <th>Date de la commande</th>
-            <th>Prix Total</th>
-            <th>Details</th>
-        </tr>
-        <tr>
-            <td>#</td>
-            <td>19/04/2020</td>
-            <td>120 euros</td>
-            <td>Cliquez-ici</td> 
-            
-        </tr>
+        </tbody>
     </table>
 
 </div>
 
-<p>
+
 
 <div class="my-4">
     <button>Supprimer mon compte</button>
@@ -87,49 +80,49 @@
 {% if is_granted ("ROLE_PRODUCTEUR") %}
 
 <div class="my-4">
-<h2> Bienvenue sur votre Espace Producteur</h2>
+    <h2> Bienvenue sur votre Espace Producteur</h2>
 </div>
 
 
 <div class="my-4">
-<img src="" width="150" height="150" alt="Photo Utilisateur"></img>
+    <img src="{{ asset('assets/img/user_photo/' ~ app.user.photo ) }}" height="180px" alt="Photo Utilisateur"></img>
 </div>
 
 <div class="my-4">
-<h5>Petit récapitulatif de vos informations Producteur :</h5>
+    <h5>Petit récapitulatif de vos informations Producteur :</h5>
 </div>
 
 <div class="my-4">
     <table>
         <tr>
-            <th>Nom de votre société</th>
+            <th>Nom de la Société</th>
             <th>N° SIRET</th>
             <th>Nom</th>
             <th>Prénom</th>
             <th>Email</th>
-            <th>Adresse (line)</th>
-            <th>Adresse (line2)</th>
+            <th>Adresse</th>
+            <th>Complément d'adresse</th>
             <th>Code Postal</th>
             <th>Ville</th>
             <th>Telephone</th>
         </tr>
         <tr>
-            <td>Au Petit Producteur</td>
-            <td>802 954 785 00028</td>
-            <td>Morel</td>
-            <td>Jonathan</td>
-            <td>jonathan@example.com</td>
-            <td>Rue xxxxx</td>
-            <td></td>
-            <td>69003</td>
-            <td>Lyon</td>
-            <td>06xxxxxxx</td>
+            <td>{{app.user.company.name}}</td>
+            <td>{{app.user.company.siret}}</td>
+            <td>{{app.user.lastname}}</td>
+            <td>{{app.user.firstname}}</td>
+            <td>{{app.user.email}}</td>
+            <td>{{app.user.address.line}}</td>
+            <td>{{app.user.address.line2}}</td>
+            <td>{{app.user.address.zipcode}}</td>
+            <td>{{app.user.address.city}}</td>
+            <td>{{app.user.phone}}</td>
         </tr>
     </table>
 </div>
 
 <div class="my-4">
-    <button>Modifier mes informations</button>
+    <a href="{{ path('profil_edit', {user:app.user.id}) }}"><button>Modifier mes informations</button></a>
 </div>
 
 <div class="my-4">
@@ -139,7 +132,7 @@
 <p>
 
 <div class="my-4">
-<h5>Mon stock de produits : </h5>
+    <h5>Mon stock de produits : </h5>
 </div>
 
 <div class="my-4">
@@ -165,7 +158,7 @@
 <div class="my-4"><button>Ajouter un stock</button></div>
 
 <div class="my-4">
-<h5>Liste des points Relais : </h5>
+    <h5>Liste des points Relais : </h5>
 </div>
 
 <div class="my-4">
