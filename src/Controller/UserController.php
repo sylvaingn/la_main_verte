@@ -28,11 +28,14 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/profil", name="profil_index")
+     * @Route("/{profilId}", name="profil_index", methods={"GET"})
      */
-    public function profil()
+    public function profil(UserRepository $userRepository, int $profilId)
     {
-        return $this->render('user/profil.html.twig');
+        $user = $userRepository->find($profilId);
+        return $this->render('user/profil.html.twig', [
+            'user' => $user
+        ]);
     }
 
     /**
