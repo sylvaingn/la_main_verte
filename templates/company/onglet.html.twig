@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résultats de recherche
+{% endblock %}
+
+{% block body %}
+
+	<h1>Votre recherche a généré
+		{{users|length}}
+		résultat(s)</h1>
+
+<ul class="nav nav-tabs">
+	<li class="nav-item">
+		<a class="nav-link active" data-toggle="tab" href="#vueliste">Vue liste</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#vuecarte">Vue carte</a>
+	</li>
+</ul>
+
+<div class="tab-content">
+
+	<div class="tab-pane container active" id="vueliste">
+            {% for user in users %}
+
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{user.company.name}}</h5>
+                    <h6>{{user.address.city}}</h6>
+                    <p>
+                        {{user.company.description}}</p>
+                    <a href="{{ path('company_show', {company: user.company.id}) }}" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+	<div class="tab-pane container fade" id="vuecarte">
+        
+        carte !
+
+    </div>
+
+</div>
+
+{% endblock %}
+

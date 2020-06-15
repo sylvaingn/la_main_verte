@@ -48,7 +48,8 @@
     </div>
 </div>
 
-<form action="{{ path('company_result')}}" method="GET">
+<form action="{{ path('company_testCarte')}}" method="GET">
+{# <form action="{{ path('company_result')}}" method="GET"> #}
     <div class="row">
         <div class="col">
             <input type="text" class="form-control" name="city" placeholder="Entrez le nom de votre ville">
@@ -57,7 +58,7 @@
             <input type="text" class="form-control" name="word" placeholder="Entrez les mots-clés">
         </div>
         <div class="col">
-            <button type="submit">Rechercher</button>
+            <button id="searchProd" type="submit">Rechercher</button>
         </div>
     </div>
 </form>
