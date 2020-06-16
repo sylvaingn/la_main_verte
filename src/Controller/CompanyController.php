@@ -4,16 +4,16 @@ namespace App\Controller;
 
 use App\Entity\Company;
 use App\Entity\Review;
-use App\Entity\User;
 use App\Form\CompanyType;
+use App\Repository\AddressRepository;
 use App\Repository\CompanyRepository;
 use App\Repository\ReviewRepository;
 use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType as TypeIntegerType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,14 +24,60 @@ use Symfony\Component\Routing\Annotation\Route;
 class CompanyController extends AbstractController
 {
 
+    // /**
+    //  * @Route("/result", name="company_result", methods={"GET"})
+    //  */
+    // public function found(UserRepository $userRepository): Response
+    // {
+
+    //     /* if (empty($_GET["word"])) {
+    //         return $this->render('company/found.html.twig', [
+    //             'users' => $userRepository->findCompanies($_GET["city"],true),
+    //         ]);
+    //     }
+
+    //     else {
+    //         return $this->render('company/found.html.twig', [
+    //         'users' => $userRepository->findCompanies($_GET["city"],$_GET["word"]),
+    //     ]);
+    //     } */
+
+    //     return $this->render('company/found.html.twig', [
+    //         'users' => $userRepository->findCompanies($_GET["city"],$_GET["word"]),
+    //     ]);
+
+    // }
+
     /**
      * @Route("/result", name="company_result", methods={"GET"})
      */
-    public function found(UserRepository $userRepository): Response
+    public function found(Request $request, UserRepository $userRepository, AddressRepository $addressRepository, CompanyRepository $companyRepository)
     {
-        return $this->render('company/found.html.twig', [
-            'users' => $userRepository->findCompanies($_GET["city"], $_GET["word"]),
+        $users = $userRepository->findCompanies($_GET["city"], $_GET["word"]);
+
+        $companies_map = [];
+        foreach ($users as $user) {
+
+            $resultat = $userRepository->find($user);
+            $address = $addressRepository->findOneBy(['id' => $resultat->getAddress()]);
+            $company = $companyRepository->find($resultat->getCompany());
+
+            $companies_map[] = [
+                'id' => $resultat->getId(),
+                'name' => $company->getName(),
+                'postcode' => $address->getZipCode(),
+                'latitude' => $address->getLatitude(),
+                'longitude' => $address->getLongitude()
+            ];
+        }
+        
+        $jsonData = json_encode($companies_map);
+
+        return $this->render('company/onglet.html.twig', [
+            'users' => $users,
+            'companies' => $jsonData
         ]);
+
     }
 
     /**
@@ -43,7 +89,6 @@ class CompanyController extends AbstractController
             'companies' => $companyRepository->findAll(),
         ]);
     }
-
 
     /**
      * @Route("/new", name="company_new", methods={"GET","POST"})
@@ -110,7 +155,7 @@ class CompanyController extends AbstractController
     {
         $review = new Review();
         $form = $this->createFormBuilder($review)
-            ->add('rating', TypeIntegerType::class, [
+            ->add('rating', IntegerType::class, [
                 'label' => "Donner une note",
                 'attr' => [
                     "min" => 0,
@@ -134,15 +179,14 @@ class CompanyController extends AbstractController
             if (is_null($this->getUser())) {
 
                 return $this->redirectToRoute('app_login');
-                
             } else {
 
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($review);
                 $entityManager->flush();
-    
-                return $this->redirectToRoute('company_show',["company"=>$company->getId()] );            }
 
+                return $this->redirectToRoute('company_show', ["company" => $company->getId()]);
+            }
         }
 
         return $this->render('company/show.html.twig', [

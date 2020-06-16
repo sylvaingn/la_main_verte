@@ -21,16 +21,16 @@
 			<tbody>
 				{% for item in items %}
 					<tr>
-						<td>nom</td>
+						<td>{{ item.product.name}}</td>
 						{# <td>{{ item.id }}</td> #}
 						<td>{{ item.quantity }}</td>
 						{# <td>{{ item.conditioning }}</td> #}
-						<td>unité</td>
-						<td>prix</td>
-						<td>prix * unité</td>
+						<td>{{ item.stock.conditioning }}</td>
+						<td>{{ item.stock.price }} €</td>
+						<td>{{ item.quantity * item.stock.price }} €</td>
 						<td>
-							<a href="{{ path("cart_remove", {'id': item.stock.id}) }}" class="btn">
-								{# //fonction définie dans CartController #}
+							<a id="suppStockOffCart" href="{{ path("cart_remove", {'id': item.stock.id}) }}" class="btn">
+								{# //fonction définie dans CartController :  #}
 								<i class="fa fa-trash"></i>
 							</a>
 						</td>
@@ -40,11 +40,9 @@
 			<tfoot>
 				{# // total du panier #}
 				<tr>
-					<td colspan="4" class="text-right">Total :
-					</td>
-					{# //on regroupe name:price/quantity #}
-					<td>{{ total }}</td>
-					<td></td>
+					<td colspan="4" class="text-right">Total : </td>
+					<td>{{ total }} €</td>
+					<td><a id="confirmOrdered" href="{{path("createCommande")}}" class="btn btn-sm btn-primary">Passer la commande</a></td>
 				</tr>
 			</tfoot>
 		</table>
