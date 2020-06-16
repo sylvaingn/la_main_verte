@@ -1,5 +1,15 @@
-
-#mapid {
+#map{
   width: 100vw;
   height: 100vh;
-  }
+}
+
+.company_card_img {
+  border-style: groove;
+  border-width: 1px 0px 1px 1px;
+  padding: 5px 2px 5px 2px;
+}
+.company_card_text {
+  border-style: groove;
+  border-width: 1px 1px 1px 0px;
+  padding: 5px 2px 5px 2px;
+}
