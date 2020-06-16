@@ -51,11 +51,8 @@ class CompanyController extends AbstractController
     /**
      * @Route("/result", name="company_result", methods={"GET"})
      */
-    public function found(Request $request, UserRepository $userRepository, AddressRepository $addressRepository)
-    // public function foundListMap(UserRepository $userRepository): Response
+    public function found(Request $request, UserRepository $userRepository, AddressRepository $addressRepository, CompanyRepository $companyRepository)
     {
-        // if ($request->isXmlHttpRequest() || $request->query->get('showJson') == 1) {
-
         $users = $userRepository->findCompanies($_GET["city"], $_GET["word"]);
 
         $companies_map = [];
@@ -63,30 +60,23 @@ class CompanyController extends AbstractController
 
             $resultat = $userRepository->find($user);
             $address = $addressRepository->findOneBy(['id' => $resultat->getAddress()]);
-            // dd($address);
+            $company = $companyRepository->find($resultat->getCompany());
 
             $companies_map[] = [
                 'id' => $resultat->getId(),
-                'name' => $resultat->getCompany(),
+                'name' => $company->getName(),
                 'postcode' => $address->getZipCode(),
                 'latitude' => $address->getLatitude(),
                 'longitude' => $address->getLongitude()
             ];
         }
-
-        $jsonData = $companies_map;
-        // dd($jsonData);
-
-        // return new JsonResponse($jsonData);
+        
+        $jsonData = json_encode($companies_map);
 
         return $this->render('company/onglet.html.twig', [
-            'users' => $users
+            'users' => $users,
+            'companies' => $jsonData
         ]);
-
-        // }
-        // else{
-        //     return new Response("echec");
-        // }
 
     }
 
