@@ -45,9 +45,9 @@ class CompanyController extends AbstractController
     // }
 
     /**
-     * @Route("/testCarte", name="company_testCarte", methods={"GET"})
+     * @Route("/result", name="company_result", methods={"GET"})
      */
-    public function foundListMap(Request $request, UserRepository $userRepository, AddressRepository $addressRepository)
+    public function found(Request $request, UserRepository $userRepository, AddressRepository $addressRepository)
     // public function foundListMap(UserRepository $userRepository): Response
     {
         // if ($request->isXmlHttpRequest() || $request->query->get('showJson') == 1) {

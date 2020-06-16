@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CompanyRepository;
 use App\Repository\StockRepository;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,9 +17,11 @@ class AppController extends AbstractController
      *
      */
 
-    public function index()
+    public function index(CompanyRepository $companyRepository)
     {
-        return $this->render('app/index.html.twig');
+        return $this->render('app/index.html.twig'/* ,[
+            "companies" => $companyRepository->find()
+        ] */);
     }
 
 
