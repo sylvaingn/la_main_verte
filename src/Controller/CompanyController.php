@@ -3,12 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Company;
+use App\Entity\Review;
 use App\Form\CompanyType;
 use App\Repository\AddressRepository;
 use App\Repository\CompanyRepository;
+use App\Repository\ReviewRepository;
 use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -37,11 +41,11 @@ class CompanyController extends AbstractController
     //         'users' => $userRepository->findCompanies($_GET["city"],$_GET["word"]),
     //     ]);
     //     } */
-        
+
     //     return $this->render('company/found.html.twig', [
     //         'users' => $userRepository->findCompanies($_GET["city"],$_GET["word"]),
     //     ]);
-    
+
     // }
 
     /**
@@ -52,32 +56,32 @@ class CompanyController extends AbstractController
     {
         // if ($request->isXmlHttpRequest() || $request->query->get('showJson') == 1) {
 
-            $users = $userRepository->findCompanies($_GET["city"], $_GET["word"]);
+        $users = $userRepository->findCompanies($_GET["city"], $_GET["word"]);
 
-            $companies_map = [];
-            foreach ($users as $user) {
+        $companies_map = [];
+        foreach ($users as $user) {
 
-                $resultat = $userRepository->find($user);
-                $address = $addressRepository->findOneBy(['id' => $resultat->getAddress()]);
-                // dd($address);
+            $resultat = $userRepository->find($user);
+            $address = $addressRepository->findOneBy(['id' => $resultat->getAddress()]);
+            // dd($address);
 
-                $companies_map[] = [
-                    'id' => $resultat->getId(),
-                    'name' => $resultat->getCompany(),
-                    'postcode' => $address->getZipCode(),
-                    'latitude' => $address->getLatitude(),
-                    'longitude' => $address->getLongitude()
-                ];
-            }
+            $companies_map[] = [
+                'id' => $resultat->getId(),
+                'name' => $resultat->getCompany(),
+                'postcode' => $address->getZipCode(),
+                'latitude' => $address->getLatitude(),
+                'longitude' => $address->getLongitude()
+            ];
+        }
 
-            $jsonData = $companies_map;
-            // dd($jsonData);
+        $jsonData = $companies_map;
+        // dd($jsonData);
 
-            // return new JsonResponse($jsonData);
+        // return new JsonResponse($jsonData);
 
-            return $this->render('company/onglet.html.twig', [
-                'users' => $users
-            ]);
+        return $this->render('company/onglet.html.twig', [
+            'users' => $users
+        ]);
 
         // }
         // else{
@@ -155,19 +159,51 @@ class CompanyController extends AbstractController
     }
 
     /**
-     * @Route("/{company}", name="company_show", methods={"GET"})
+     * @Route("/{company}", name="company_show", methods={"GET","POST"})
      */
-    public function show(Company $company): Response
+    public function show(Company $company, Request $request, CompanyRepository $companyRepository, ReviewRepository $reviewRepository): Response
     {
+        $review = new Review();
+        $form = $this->createFormBuilder($review)
+            ->add('rating', IntegerType::class, [
+                'label' => "Donner une note",
+                'attr' => [
+                    "min" => 0,
+                    "max" => 10,
+                ],
+            ])
+            ->add('comment', TextType::class, [
+                'label' => "Ecrivez votre commentaire",
+                'required' => false,
+            ])
+            ->getForm();
+
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $review->setCompany($companyRepository->find($company));
+            $review->setUser($this->getUser());
+
+            if (is_null($this->getUser())) {
+
+                return $this->redirectToRoute('app_login');
+            } else {
+
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($review);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('company_show', ["company" => $company->getId()]);
+            }
+        }
+
         return $this->render('company/show.html.twig', [
+            'reviews' => $reviewRepository->findCompanyReviews($company),
             'company' => $company,
+            'form' => $form->createView(),
 
         ]);
     }
-
-
-
-
-
-
 }
