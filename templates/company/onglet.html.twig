@@ -5,26 +5,38 @@
 
 {% block body %}
 
-	<h1>Votre recherche a généré
-		{{users|length}}
-		résultat(s)</h1>
+{% if users|length > 0 %}
+    {% if users|length == 1 %}
+        <h1>Votre recherche a généré 1 résultat</h1>
+    {% else %}
+        <h1>Votre recherche a généré {{ users|length }} résultats</h1> 
+    {% endif %}
+{% else %}
+    <h1>Désolé, aucun résultat ne correspond à votre recherche.</h1> 
+{% endif %}
+
+<div id="js-geoloc" data-geoloc="{{companies}}"></div>
 
 <ul class="nav nav-tabs">
 	<li class="nav-item">
-		<a class="nav-link active" data-toggle="tab" href="#vueliste">Vue liste</a>
+		<a class="nav-link active" data-toggle="tab" href="#vueliste">Vue carte</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#vuecarte">Vue carte</a>
+		<a class="nav-link" data-toggle="tab" href="#vuecarte">Vue liste</a>
 	</li>
 </ul>
 
 <div class="tab-content">
 
-	<div class="tab-pane container active" id="vueliste">
-            {% for user in users %}
+	<div class="tab-pane container active" id="vuecarte">
+         <div id="map"></div>   
+    </div>
+
+	<div class="tab-pane container" id="vueliste">
+         {% for user in users %}
 
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="{{ asset('assets/img/Logo ferme 2.svg') }}" class="card-img-top" alt="img">
                 <div class="card-body">
                     <h5 class="card-title">{{user.company.name}}</h5>
                     <h6>{{user.address.city}}</h6>
@@ -35,15 +47,50 @@
             </div>
 
         {% endfor %}
-    </div>
-
-	<div class="tab-pane container fade" id="vuecarte">
-        
-        carte !
-
+       
     </div>
 
 </div>
 
+
+
 {% endblock %}
 
+
+        {% block javascripts %}
+{{ parent() }}
+
+            <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+            <script src='https://api.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
+            <script type="text/javascript">
+
+jQuery(document).ready(() => {
+
+    const tabMarkers = JSON.parse(jQuery('#js-geoloc').attr('data-geoloc'));
+
+    var mapboxTiles = L.tileLayer(
+        "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png", {
+            attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>',
+        }
+    );
+
+    const producteursLayer = L.layerGroup();
+
+    const mymap = L.map("map")
+        .addLayer(mapboxTiles)
+        .addLayer(producteursLayer)
+        .setView([45.7673014, 4.8315513], 12); //valeurs par défaut, centre de la carte affichée
+
+        // affichage des markers :
+    for (let index = 0; index < tabMarkers.length; index++) {
+        const marker = L.marker([tabMarkers[index].latitude, tabMarkers[index].longitude]);
+        producteursLayer.addLayer(marker);
+        marker.on("mouseover", function () {
+            this.bindPopup(tabMarker.zipcode).openPopup();
+        });
+    }
+
+});
+
+            </script>
+        {% endblock %}
