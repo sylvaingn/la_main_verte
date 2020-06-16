@@ -6,13 +6,27 @@
 {% block body %}
 	<h1>résultat du producteur choisi</h1>
 
+{% if items | length >0 %}
+    <div id="panier"><i class="fa fa-shopping-basket"></i>
+        <span class="badge badge-sm badge-success">{{ items | length }} produits</span>
+        <span class="badge badge-sm badge-warning">Total {{ total }} €</span> 
+        {% if total > 0 %}
+            <a class="btn btn-sm btn-secondary" href="{{ path('cart_index') }}">Voir le détail</a>
+            <a class="btn btn-sm btn-secondary" href="#">Passer la commande</a>
+        {% endif %}
+    </div>
+{% endif %}
+
+
+
 	<table class="table">
         <tr>
             <th>Nom</th>
             <th>Quantité disponible</th>
             <th>Unité</th>
             <th>Prix</th>
-            <th>ajouter au panier</th>
+            <th>ajouter</th>
+            <th>retirer</th>
         </tr>
 
         <tbody>
@@ -34,13 +48,16 @@
                     <td> </td>
                     {% else %}
                     <td>
-                        <a id="addStockOnCart" href="{{ path('cart_add', {'id': stock.id}) }}"><i class="fa fa-cart-plus"></i></a>
+                        <a href="{{ path('cart_add', {'id': stock.id}) }}"><i class="fa fa-cart-plus"></i></a>
+                    </td>
+                    <td>
+                        <a href="{{ path('cart_remove', {'id': stock.id}) }}"><i class="fa fa-trash-o"></i></a>
                     </td>
                     {% endif %}
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5">aucun stock disponible</td>
+                    <td colspan="6">aucun stock disponible</td>
                 </tr>
             {% endfor %}
         </tbody>

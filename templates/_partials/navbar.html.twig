@@ -34,10 +34,10 @@ aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler
                     <li class="nav-item">
                         <a class="nav-link" href="#">Gestion des données</a>
                     </li>
-                {% else %}
+                {# {% else %}
                     <li class="nav-item">
                         <a class="nav-item nav-link" href="#">Supprimer mon compte</a>
-                    </li>
+                    </li> #}
                 {% endif %}
 
                 {% if is_granted("ROLE_ADMIN") == false %}
