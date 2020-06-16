@@ -24,7 +24,6 @@ class CartController extends AbstractController
     $panier = $session->get('panier', []); 
 
     $panierWithData = [];
-
     foreach($panier as $id => $quantity)
     {
         $stock = $stockRepository->find($id);
@@ -35,8 +34,6 @@ class CartController extends AbstractController
             'product'   =>  $produit
         ];
     }
-
-    //on calcule le montant total du panier
     $total=0;
     foreach($panierWithData as $item){
         $totalItem = $item['stock']->getPrice() * $item['quantity'];
@@ -53,12 +50,12 @@ class CartController extends AbstractController
     /**
      * @Route("/panier/add/{id}", name="cart_add")
      */
-    public function add($id, SessionInterface $session, StockRepository $stockRepository)
+    public function add($id, SessionInterface $session, ProductRepository $productRepository, StockRepository $stockRepository)
     {
         // on va passer en paramètre l'id du produit à ajouter au panier ($id)
         // on demande a session de nous retourner l'objet 'panier', qui par défaut sera un tableau vide
         $panier = $session->get('panier', []);
-
+   
         // on va stocker dans notre panier des id auquels on va affecter les qtés
         if (!empty($panier[$id])) //si le panier n'est pas vide pour ce produit
         {
@@ -70,11 +67,31 @@ class CartController extends AbstractController
         // on sauvegarde le panier dans la session au fur et à mesure des ajouts
         // donc au demande a 'session' de remplacer notre panier précédent par le nouveau
         $session->set('panier', $panier);
+        $panierWithData = [];
+        foreach ($panier as $id => $quantity) {
+            $stock = $stockRepository->find($id);
+            $produit = $productRepository->findOneBy(['id' =>  $stock->getProduct()]);
+            $panierWithData[] = [
+                'stock'   => $stock,
+                'quantity'  =>  $quantity,
+                'product'   =>  $produit
+            ];
+        }
 
+        //on calcule le montant total du panier
+        $total = 0;
+        foreach ($panierWithData as $item) {
+            $totalItem = $item['stock']->getPrice() * $item['quantity'];
+            $total += $totalItem;
+        }
         //lignes pour test à supprimer après test
         $id_company = 1;
         $stocks = $stockRepository->findBy(['company' => $id_company]);
-        return $this->render('stock/ordered.html.twig', ['stocks' => $stocks]);
+        return $this->render('stock/ordered.html.twig', [
+            'stocks' => $stocks,
+            'total' => $total,
+            'items' =>  $panierWithData
+            ]);
 
         // ligne suivante à remettre après test
         // return $this->redirectToRoute("cart_index"); // affichage du panier à chaque nouvel article
