@@ -46,6 +46,17 @@ class ReviewRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findMyCompanyReviews($value)
+    {
+        return $this->createQueryBuilder('r')
+            ->innerJoin('r.company', 'c')
+            ->innerJoin('c.user', 'u')
+            ->andWhere('u.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult();
+    }
+
     /*
     public function findOneBySomeField($value): ?Review
     {

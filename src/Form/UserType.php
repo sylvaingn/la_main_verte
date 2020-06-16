@@ -40,13 +40,13 @@ class UserType extends AbstractType
                         'mimeTypesMessage' => "Merci d'uploader un fichier en .jpg ou png !",
                     ])
                 ],
-                
+
             ])
             ->add('phone', TextType::class, [
                 'label' => 'Telephone'
             ])
-            ->add('address', AddressType::class)
-            ->add('company', CompanyType::class);
+            ->add('address', AddressType::class);
+
     }
 
     public function configureOptions(OptionsResolver $resolver)
