@@ -16,7 +16,7 @@ class AddressFixtures extends Fixture
         $faker = Faker\Factory::create('fr_FR');
 
         // on créé 10 adresses
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 1; $i <= 1000; $i++) {
             $adresse = new Address();
 
             $adresse->setCity($faker->city);

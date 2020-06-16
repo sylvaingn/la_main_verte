@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Drive;
 use App\Repository\AddressRepository;
+use App\Repository\CompanyRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
