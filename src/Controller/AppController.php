@@ -19,9 +19,9 @@ class AppController extends AbstractController
 
     public function index(CompanyRepository $companyRepository)
     {
-        return $this->render('app/index.html.twig'/* ,[
-            "companies" => $companyRepository->find()
-        ] */);
+        return $this->render('app/index.html.twig' ,[
+            "companies" => $companyRepository->findTenBestCompanies()
+        ] );
     }
 
 
