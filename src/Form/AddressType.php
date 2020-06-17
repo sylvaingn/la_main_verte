@@ -29,11 +29,11 @@ class AddressType extends AbstractType
                 'label' => 'Ville'
             ])
             ->add('latitude', HiddenType::class, [
-                'data' => '80.00'
+                'data' => '45.80'
             ])
             ->add('longitude', HiddenType::class, [
-                'data' => '80.00'
-            ]);
+                'data' => '4.80'
+            ]); 
     }
 
     public function configureOptions(OptionsResolver $resolver)
