@@ -5,12 +5,14 @@
 {% block body %}
     <h1>Drive index</h1>
 
+{{ include('product/_form.html.twig') }}
+
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>actions</th>
+                <th>Addresse</th>
             </tr>
         </thead>
         <tbody>
@@ -18,10 +20,7 @@
             <tr>
                 <td>{{ drive.id }}</td>
                 <td>{{ drive.name }}</td>
-                <td>
-                    <a href="{{ path('drive_show', {'id': drive.id}) }}">show</a>
-                    <a href="{{ path('drive_edit', {'id': drive.id}) }}">edit</a>
-                </td>
+                <td>{{ drive.address.line }} - <strong>{{ drive.address.zipcode }} {{ drive.address.city }}</strong></td>
             </tr>
         {% else %}
             <tr>

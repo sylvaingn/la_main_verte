@@ -17,6 +17,16 @@ class ContactController extends AbstractController
 {
 
     /**
+     * @Route("/gestion", name="contact_index", methods={"GET"})
+     */
+    public function index(ContactRepository $contactRepository)
+    {
+        return $this->render('contact/index.html.twig', [
+            'contacts' => $contactRepository->findAll()
+        ]);
+    }
+
+    /**
      * @Route("/", name="contact_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response

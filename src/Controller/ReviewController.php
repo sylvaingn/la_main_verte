@@ -17,12 +17,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class ReviewController extends AbstractController
 {
     /**
-     * @Route("/", name="review_index", methods={"GET"})
+     * @Route("/gestion", name="review_index", methods={"GET"})
      */
     public function index(ReviewRepository $reviewRepository): Response
     {
         return $this->render('review/index.html.twig', [
-            'reviews' => $reviewRepository->findAll(),
+            'reviews' => $reviewRepository->findAllWithUser(),
         ]);
     }
 

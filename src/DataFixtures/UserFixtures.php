@@ -25,14 +25,14 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $faker = Faker\Factory::create('fr_FR');
 
         // on créé 10 adresses
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i <= 500; $i++) {
             $user = new User();
 
             $user->setEmail($faker->email);
             $user->setPassword($faker->password);
             $user->setFirstname($faker->firstname);
             $user->setLastname($faker->lastname);
-            $user->setAddress($this->addressRepository->find(rand(1,999)));
+            $user->setAddress($this->addressRepository->find(rand(1,1000)));
             $user->setIsVerified(rand(0,1));
             
 
