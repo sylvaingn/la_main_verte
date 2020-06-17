@@ -27,7 +27,7 @@ class CompanyType extends AbstractType
             ])
             ->add('validated', HiddenType::class, [
                 'attr' => [
-                    'value' => true,
+                    'value' => 0,
                 ]
             ])
         ;
