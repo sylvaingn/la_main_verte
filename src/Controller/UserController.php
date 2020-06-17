@@ -40,14 +40,14 @@ class UserController extends AbstractController
      */
     public function profil(StockRepository $stockRepository, DriveRepository $driveRepository, OrderedRepository $orderedRepository)
     {
-        if (in_array("ROLE_PRODUCTEUR", $this->getUser()->getRoles()) AND is_null($this->getUser()->getCompany())) {
-            return $this->redirectToRoute('profil_edit', ['user'=>$this->getUser()->getId()]);
+        if (in_array("ROLE_PRODUCTEUR", $this->getUser()->getRoles()) and is_null($this->getUser()->getCompany())) {
+            return $this->redirectToRoute('profil_edit', ['user' => $this->getUser()->getId()]);
         }
-    
+
         return $this->render('user/profil.html.twig', [
             'stocks' => $stockRepository->findCompanyStocks($this->getUser()), // PRODUCTEUR : affichage des stocks pour chaque producteur
             'drives' => $driveRepository->findCompanyDrives($this->getUser()),
-            'ordereds'=> $orderedRepository->findUserOrdereds($this->getUser())
+            'ordereds' => $orderedRepository->findUserOrdereds($this->getUser())
         ]);
     }
 
@@ -91,13 +91,15 @@ class UserController extends AbstractController
     public function edit(Request $request, User $user, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(UserType::class, $user);
+
+        if (in_array("ROLE_PRODUCTEUR", ($this->getUser()->getRoles()))) {
+
+            $form->add('company', CompanyType::class);
+        }
+        
         $form->handleRequest($request);
 
 
-        if (in_array("ROLE_PRODUCTEUR", ($this->getUser()->getRoles()))) {
-            
-                $form->add('company', CompanyType::class);
-        }
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -131,6 +133,7 @@ class UserController extends AbstractController
                     $user->setPhoto($newFilename);
                 }
             }
+
 
             $this->getDoctrine()->getManager()->flush();
 

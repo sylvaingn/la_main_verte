@@ -43,7 +43,11 @@
 {% endif %}
 
 
+{# Accueil si client, connecté ou non #}
+
+
 {% if is_granted ('ROLE_PRODUCTEUR')== false and is_granted ('ROLE_ADMIN') == false  %}
+
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 class="display-4">Bienvenue sur la main verte</h1>
@@ -122,74 +126,76 @@
 {% endif %}
 
 
+
+
+
 {% if is_granted ("ROLE_PRODUCTEUR")%}
 
 <h1>Commandes à valider</h1>
 
+<form action="{{ path('app_validated-ordered')}}" method="POST">
 <table class="table">
     <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Prénom</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Email</th>
+            <th scope="col">Date de création</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Détails</th>
+            <th scope="col">À valider</th>
         </tr>
     </thead>
     <tbody>
+
+    {% for ordered in ordereds %}
+    
         <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope="row">{{ ordered.id }}</th>
+            <td>{{ ordered.createdAt|date('d/m/y') }}</td>
+            <td>{{ ordered.totalPrice}}</td>
+            <td>Détails</td>
+            <td> <input type="checkbox" name="orderedValidated[]" value={{ ordered.id }} id="orderedValidated{{ordered.id}}" > </td>
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
+
+    {% endfor %}
     </tbody>
 </table>
 
+<button type="submit">Mettre à jour</button>
+</form>
 
 <h1>Récapitulatif des commandes terminées</h1>
 
+
+
 <table class="table">
     <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Prénom</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Email</th>
+            <th scope="col">Date de création</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Détails</th>
+            
+            
         </tr>
     </thead>
     <tbody>
+
+    {% for ordered in vOrdereds %}
+    
         <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope="row">{{ ordered.id }}</th>
+            <td>{{ ordered.createdAt|date('d/m/y') }}</td>
+            <td>{{ ordered.totalPrice}}</td>
+            <td>Détails</td>
+
+            
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
+
+    {% endfor %}
     </tbody>
 </table>
+
+
 {% endif %}
 
 
