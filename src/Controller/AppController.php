@@ -67,7 +67,7 @@ class AppController extends AbstractController
     }
 
     /**
-     * @Route ("/validated-ordered", name="app_validated-company")
+     * @Route ("/validated-company", name="app_validated-company")
      *
      */
     public function validatedCompany(CompanyRepository $companyRepository, Request $request)
