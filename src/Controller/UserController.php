@@ -46,8 +46,8 @@ class UserController extends AbstractController
 
         return $this->render('user/profil.html.twig', [
             'stocks' => $stockRepository->findCompanyStocks($this->getUser()), // PRODUCTEUR : affichage des stocks pour chaque producteur
-            'drives' => $driveRepository->findCompanyDrives($this->getUser()),
-            'ordereds' => $orderedRepository->findUserOrdereds($this->getUser())
+            'drives' => $driveRepository->findCompanyDrives($this->getUser()), // PRODUCTEUR : affichage des drives pour chaque producteur
+            'ordereds' => $orderedRepository->findUserOrdereds($this->getUser()) // CLIENT : affichage des commandes pour chaque utilisateur
         ]);
     }
 

@@ -51,7 +51,8 @@ class StockType extends AbstractType
             ])
             
             ->add('description', TextType::class, [
-                'label' => 'Description'
+                'label' => 'Description',
+                'required' => false
             ])
 
             /* ->add('company', EntityType::class, [
