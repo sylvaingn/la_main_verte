@@ -162,7 +162,15 @@
     </table>
 </div>
 
+{% if app.user.company.validated %}
+
 <div class="my-4"><a href="{{ path('stock_new')}}"><button>Ajouter un stock</button></a></div>
+
+{% else %}
+<div class="my-4"><a href="{{ path('stock_new')}}"><button disabled>Ajouter un stock</button></a></div>
+
+{% endif %}
+
 
 <div class="my-4">
     <h5>Liste des points Relais : </h5>
@@ -202,7 +210,17 @@
     </table>
 </div>
 
+{% if app.user.company.validated %}
+
 <div class="my-4"><a href="{{ path('drive_new')}}"><button>Ajouter un point relais</button></a></div>
+
+{% else %}
+<div class="my-4"><a href="{{ path('drive_new')}}"><button disabled>Ajouter un point relais</button></a></div>
+
+{% endif %}
+
+
+
 {{ include('user/_delete_form.html.twig') }}
 {% endif %}
 
