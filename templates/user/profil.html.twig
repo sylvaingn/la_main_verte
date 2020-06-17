@@ -154,14 +154,15 @@
             <td>{{stock.product.category.name}}</td>
             <td>{{stock.quantity}}</td>
             <td>{{stock.price}}</td>
-            <td><button>Modifier</button></td>
-            <td><button>Supprimer</button></td>
+            <td><a href="{{ path('stock_edit', {id: stock.id}) }}"><button>Modifier</button></a></td>
+            <td>{{ include('stock/_delete_form.html.twig') }}</td>
+            {# <td><a href="{{ path('stock_delete', {id: stock.id}) }}"><button>Supprimer</button></a></td> #}
         </tr>
         {% endfor %}
     </table>
 </div>
 
-<div class="my-4"><button>Ajouter un stock</button></div>
+<div class="my-4"><a href="{{ path('stock_new')}}"><button>Ajouter un stock</button></a></div>
 
 <div class="my-4">
     <h5>Liste des points Relais : </h5>
@@ -170,11 +171,14 @@
 <div class="my-4">
     <table>
         <tr>
-            <th>Nom du Point Relai</th>
-            <th>Adresse1</th>
-            <th>Adresse2</th>
+            <th>Nom du Point Relais</th>
+            <th>Adresse</th>
+            <th>Complément d'adresse</th>
             <th>Code Postal</th>
             <th>Ville</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+
 
         </tr>
 
@@ -186,6 +190,11 @@
             <td>{{ drive.address.line2 }}</td>
             <td>{{ drive.address.zipcode }}</td>
             <td>{{ drive.address.city }}</td>
+            <td><a href="{{ path('drive_edit', {id: drive.id})  }}"><button>Modifier</button></a></td>
+            <td>{{ include('drive/_delete_form.html.twig') }}</td>
+
+
+
         </tr>
 
         {% endfor %} 
@@ -193,7 +202,7 @@
     </table>
 </div>
 
-<div class="my-4"><button>Ajouter un Point Relai</button></div>
+<div class="my-4"><a href="{{ path('drive_new')}}"><button>Ajouter un point relais</button></a></div>
 {{ include('user/_delete_form.html.twig') }}
 {% endif %}
 
