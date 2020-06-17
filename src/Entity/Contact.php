@@ -18,11 +18,6 @@ class Contact
     private $id;
 
     /**
-     * @ORM\Column(type="datetime")
-     */
-    private $created_at;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $firstname;
@@ -41,6 +36,11 @@ class Contact
      * @ORM\Column(type="text")
      */
     private $content;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created_at;
 
     public function getId(): ?int
     {
