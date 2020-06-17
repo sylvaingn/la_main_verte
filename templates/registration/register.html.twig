@@ -55,8 +55,10 @@
                     type: 'address'
                 });
                 placesAutocomplete.on('change', function resultSelected(e) {
-                    document.querySelector('#registration_form_address_city').value = e.suggestion.city || '';
+                   document.querySelector('#registration_form_address_city').value = e.suggestion.city || '';
                     document.querySelector('#registration_form_address_zipcode').value = e.suggestion.postcode || '';
+                document.querySelector('#registration_form_address_latitude').value = e.suggestion.latlng.lat;
+                document.querySelector('#registration_form_address_longitude').value = e.suggestion.latlng.lng;
                 });
             })();
 
