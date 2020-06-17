@@ -21,6 +21,12 @@
 
     {% include('/_partials/navbar.html.twig') %}
 
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    
     {% block body %}{% endblock %}
 
     {% include('/_partials/footer.html.twig') %}
