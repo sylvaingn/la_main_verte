@@ -3,8 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\CompanyType;
 use App\Form\UserType;
+use App\Repository\CompanyRepository;
+use App\Repository\DriveRepository;
 use App\Repository\OrderedRepository;
+use App\Repository\StockRepository;
 use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -34,10 +38,16 @@ class UserController extends AbstractController
     /**
      * @Route("/profil", name="profil_index", methods={"GET"})
      */
-    public function profil(OrderedRepository $orderedRepository)
+    public function profil(StockRepository $stockRepository, DriveRepository $driveRepository, OrderedRepository $orderedRepository)
     {
+        if (in_array("ROLE_PRODUCTEUR", $this->getUser()->getRoles()) and is_null($this->getUser()->getCompany())) {
+            return $this->redirectToRoute('profil_edit', ['user' => $this->getUser()->getId()]);
+        }
+
         return $this->render('user/profil.html.twig', [
-            'ordereds'=> $orderedRepository->findUserOrdereds($this->getUser()),
+            'stocks' => $stockRepository->findCompanyStocks($this->getUser()), // PRODUCTEUR : affichage des stocks pour chaque producteur
+            'drives' => $driveRepository->findCompanyDrives($this->getUser()),
+            'ordereds' => $orderedRepository->findUserOrdereds($this->getUser())
         ]);
     }
 
@@ -81,7 +91,15 @@ class UserController extends AbstractController
     public function edit(Request $request, User $user, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(UserType::class, $user);
+
+        if (in_array("ROLE_PRODUCTEUR", ($this->getUser()->getRoles()))) {
+
+            $form->add('company', CompanyType::class);
+        }
+        
         $form->handleRequest($request);
+
+
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -116,6 +134,7 @@ class UserController extends AbstractController
                 }
             }
 
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('profil_index');
@@ -138,6 +157,6 @@ class UserController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('user_index');
+        return $this->redirectToRoute('app_index');
     }
 }

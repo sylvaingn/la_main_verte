@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Company;
 use App\Repository\CompanyRepository;
+use App\Repository\DriveRepository;
 use App\Repository\UserRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -14,8 +15,9 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
 {
     private $userRepository;
 
-    public function __construct(UserRepository $userRepository, CompanyRepository $companyRepository)
+    public function __construct(UserRepository $userRepository, CompanyRepository $companyRepository, DriveRepository $driveRepository)
     {
+        $this->driveRepository = $driveRepository;
         $this->userRepository = $userRepository;
         $this->companyRepository = $companyRepository;
     }
@@ -35,6 +37,10 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
             $company->setDescription($faker->realText);
             $company->setValidated(true);
             $company->setUser($this->userRepository->find($i));
+            for ($j = 1; $j<=5; $j++){
+                $company->addDrive($this->driveRepository->find($j));
+            }
+            
 
             $manager->persist($company);
         }
@@ -45,6 +51,7 @@ class CompanyFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
+            DriveFixtures::class,
             UserFixtures::class,
         ];
     }

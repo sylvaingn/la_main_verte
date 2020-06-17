@@ -36,6 +36,20 @@ class StockRepository extends ServiceEntityRepository
     }
     */
 
+    public function findCompanyStocks($value)
+    {
+        return $this->createQueryBuilder('s')
+            ->innerjoin ('s.company', 'c')
+            ->innerJoin('s.product', 'p')
+            ->innerJoin('p.category', 'ca')
+            ->innerjoin ('c.user', 'u')
+            ->andWhere('u.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     /*
     public function findOneBySomeField($value): ?Stock
     {

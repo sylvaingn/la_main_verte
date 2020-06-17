@@ -126,7 +126,7 @@
 </div>
 
 <div class="my-4">
-    <a href="">Consulter les avis</a>
+    <a href="{{ path('review_company')}}">Consulter les avis</a>
 </div>
 
 <p>
@@ -139,19 +139,25 @@
     <table>
         <tr>
             <th>Nom du Produit</th>
+            <th>Catégorie</th>
             <th>Quantité</th>
             <th>Prix Unitaire</th>
             <th>Modifier</th>
             <th>Supprimer</th>
 
         </tr>
+
+        {% for stock in stocks %}
+
         <tr>
-            <td>Carottes</td>
-            <td>20</td>
-            <td>5 euros</td>
+            <td>{{stock.product.name}}</td>
+            <td>{{stock.product.category.name}}</td>
+            <td>{{stock.quantity}}</td>
+            <td>{{stock.price}}</td>
             <td><button>Modifier</button></td>
             <td><button>Supprimer</button></td>
         </tr>
+        {% endfor %}
     </table>
 </div>
 
@@ -171,18 +177,24 @@
             <th>Ville</th>
 
         </tr>
+
+        {% for drive in drives %}
+
         <tr>
-            <td>Relai du Vent</td>
-            <td>34, rue des dames</td>
-            <td></td>
-            <td>69003</td>
-            <td>Lyon</td>
+            <td>{{ drive.name}}</td>
+            <td>{{ drive.address.line }}</td>
+            <td>{{ drive.address.line2 }}</td>
+            <td>{{ drive.address.zipcode }}</td>
+            <td>{{ drive.address.city }}</td>
         </tr>
+
+        {% endfor %} 
+
     </table>
 </div>
 
 <div class="my-4"><button>Ajouter un Point Relai</button></div>
-<div class="my-4"><button>Supprimer mon compte</button></div>
+{{ include('user/_delete_form.html.twig') }}
 {% endif %}
 
 {% endblock %}

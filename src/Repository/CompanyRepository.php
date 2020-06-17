@@ -36,6 +36,29 @@ class CompanyRepository extends ServiceEntityRepository
     }
     */
 
+    public function findTenBestCompanies()
+    {
+        return $this->createQueryBuilder('c')
+            ->select('avg(r.rating)', 'c.name', 'c.id','c.description')
+            ->innerJoin('c.user', 'u')
+            ->innerJoin('c.review', 'r')
+            ->innerJoin('u.address', 'a')
+            ->groupBy('c.id')
+            ->orderBy('avg(r.rating)', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findNonValidatedCompanies()
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.validated = false')
+            ->getQuery()
+            ->getResult();
+    }
+
+
     /*
     public function findOneBySomeField($value): ?Company
     {
