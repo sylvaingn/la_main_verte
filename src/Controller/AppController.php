@@ -23,6 +23,7 @@ class AppController extends AbstractController
     {
         return $this->render('app/index.html.twig' ,[
             "companies" => $companyRepository->findTenBestCompanies(),
+            "Vcompanies" => $companyRepository->findNonValidatedCompanies(),
             "ordereds" => $orderedRepository->findCompanyNonValidatedOrdereds($this->getUser()),
             "vOrdereds" => $orderedRepository->findCompanyValidatedOrdereds($this->getUser()),
         ] );
@@ -63,6 +64,27 @@ class AppController extends AbstractController
     public function cgu()
     {
         return $this->render('app/cgu.html.twig');
+    }
+
+    /**
+     * @Route ("/validated-ordered", name="app_validated-company")
+     *
+     */
+    public function validatedCompany(CompanyRepository $companyRepository, Request $request)
+    {
+        if (isset($_POST['companyValidated'])) {
+
+            foreach ($_POST['companyValidated'] as $id) {
+                
+                $arrayOfNewCompany = $companyRepository->findById($id);
+
+                foreach ($arrayOfNewCompany as $newCompany) {
+                    $newCompany -> setValidated(1);
+                    $this->getDoctrine()->getManager()->flush();
+                }
+            }
+        }
+        return $this->redirectToRoute('app_index');
     }
 
     /**

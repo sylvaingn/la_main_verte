@@ -50,6 +50,15 @@ class CompanyRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findNonValidatedCompanies()
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.validated = false')
+            ->getQuery()
+            ->getResult();
+    }
+
+
     /*
     public function findOneBySomeField($value): ?Company
     {
