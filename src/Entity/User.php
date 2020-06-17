@@ -28,7 +28,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="json")
      */
-    private $roles = [];
+    private $roles = ['ROLE_CLIENT'];
 
     /**
      * @var string The hashed password
@@ -57,7 +57,7 @@ class User implements UserInterface
     private $phone;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Address::class, inversedBy="users")
+     * @ORM\ManyToOne(targetEntity=Address::class, inversedBy="users", cascade={"persist"})
      */
     private $address;
 
@@ -75,6 +75,11 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity=Review::class, mappedBy="user")
      */
     private $review;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isVerified;
 
     public function __construct()
     {
@@ -290,6 +295,18 @@ class User implements UserInterface
                 $review->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIsVerified(): ?bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(?bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }

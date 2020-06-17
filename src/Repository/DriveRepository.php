@@ -36,6 +36,20 @@ class DriveRepository extends ServiceEntityRepository
     }
     */
 
+
+    public function findCompanyDrives($value)
+    {
+        return $this->createQueryBuilder('d')
+            ->innerJoin('d.address', 'a')
+            ->innerJoin('d.companies', 'c')
+            ->innerJoin('c.user', 'u')
+            ->andWhere('u.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult();
+    }
+
+
     /*
     public function findOneBySomeField($value): ?Drive
     {

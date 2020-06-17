@@ -1,0 +1,200 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+{% if is_granted ("ROLE_CLIENT") %}
+
+
+<div class="my-4">
+    <h2> Bienvenue sur votre Espace Client </h2>
+</div>
+
+<div class="my-4">
+    <img src="{{ asset('assets/img/user_photo/' ~ app.user.photo ) }}" height="180px" alt="Photo Utilisateur"></img>
+
+</div>
+
+<div class="my-4">
+    <h5>Petit récapitulatif de vos informations client : </h5>
+</div>
+
+<ul class="list-group">
+    <li class="list-group-item py-0"><strong>Nom :</strong> {{app.user.lastname}}</li>
+    <li class="list-group-item"><strong>Prénom :</strong> {{app.user.firstname}}</li>
+    <li class="list-group-item"><strong>Email :</strong> {{app.user.email}}</li>
+    <li class="list-group-item"><strong>Adresse :</strong> {{app.user.address.line}}</li>
+    <li class="list-group-item"><strong>Complément d'adresse :</strong> {{app.user.address.line2}}</li>
+    <li class="list-group-item"><strong>Code postal :</strong> {{app.user.address.zipcode}}</li>
+    <li class="list-group-item"><strong>Ville :</strong> {{app.user.address.city}}</li>
+    <li class="list-group-item"><strong>N° téléphone :</strong> {{app.user.phone}}</li>
+</ul>
+
+<div class="my-4">
+    <a href="{{ path('profil_edit', {user:app.user.id}) }}"><button>Modifier mes informations</button></a>
+</div>
+
+
+<div class="my-4">
+    <h5>Vos dernières commandes : </h5>
+</div>
+
+
+
+<div class="my-4">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id Commande</th>
+                <th scope="col">Date de la commande</th>
+                <th scope="col">Prix total</th>
+                <th scope="col">Détails</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for ordered in ordereds %}
+            <tr>
+                <td>{{ordered.id}}</td>
+                <td>{{ordered.createdAt|date("d/m/Y")}}</td>
+                <td>{{ordered.totalPrice}}</td>
+                <td> <a href="{{ path('ordered_show', {id : ordered.id})}}">Cliquez-ici</a> </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
+
+
+
+<div class="my-4">
+    <button>Supprimer mon compte</button>
+</div>
+
+{% endif %}
+
+{% if is_granted ("ROLE_PRODUCTEUR") %}
+
+<div class="my-4">
+    <h2> Bienvenue sur votre Espace Producteur</h2>
+</div>
+
+
+<div class="my-4">
+    <img src="{{ asset('assets/img/user_photo/' ~ app.user.photo ) }}" height="180px" alt="Photo Utilisateur"></img>
+</div>
+
+<div class="my-4">
+    <h5>Petit récapitulatif de vos informations Producteur :</h5>
+</div>
+
+<div class="my-4">
+    <table>
+        <tr>
+            <th>Nom de la Société</th>
+            <th>N° SIRET</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Adresse</th>
+            <th>Complément d'adresse</th>
+            <th>Code Postal</th>
+            <th>Ville</th>
+            <th>Telephone</th>
+        </tr>
+        <tr>
+            <td>{{app.user.company.name}}</td>
+            <td>{{app.user.company.siret}}</td>
+            <td>{{app.user.lastname}}</td>
+            <td>{{app.user.firstname}}</td>
+            <td>{{app.user.email}}</td>
+            <td>{{app.user.address.line}}</td>
+            <td>{{app.user.address.line2}}</td>
+            <td>{{app.user.address.zipcode}}</td>
+            <td>{{app.user.address.city}}</td>
+            <td>{{app.user.phone}}</td>
+        </tr>
+    </table>
+</div>
+
+<div class="my-4">
+    <a href="{{ path('profil_edit', {user:app.user.id}) }}"><button>Modifier mes informations</button></a>
+</div>
+
+<div class="my-4">
+    <a href="{{ path('review_company')}}">Consulter les avis</a>
+</div>
+
+<p>
+
+<div class="my-4">
+    <h5>Mon stock de produits : </h5>
+</div>
+
+<div class="my-4">
+    <table>
+        <tr>
+            <th>Nom du Produit</th>
+            <th>Catégorie</th>
+            <th>Quantité</th>
+            <th>Prix Unitaire</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+
+        </tr>
+
+        {% for stock in stocks %}
+
+        <tr>
+            <td>{{stock.product.name}}</td>
+            <td>{{stock.product.category.name}}</td>
+            <td>{{stock.quantity}}</td>
+            <td>{{stock.price}}</td>
+            <td><button>Modifier</button></td>
+            <td><button>Supprimer</button></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="my-4"><button>Ajouter un stock</button></div>
+
+<div class="my-4">
+    <h5>Liste des points Relais : </h5>
+</div>
+
+<div class="my-4">
+    <table>
+        <tr>
+            <th>Nom du Point Relai</th>
+            <th>Adresse1</th>
+            <th>Adresse2</th>
+            <th>Code Postal</th>
+            <th>Ville</th>
+
+        </tr>
+
+        {% for drive in drives %}
+
+        <tr>
+            <td>{{ drive.name}}</td>
+            <td>{{ drive.address.line }}</td>
+            <td>{{ drive.address.line2 }}</td>
+            <td>{{ drive.address.zipcode }}</td>
+            <td>{{ drive.address.city }}</td>
+        </tr>
+
+        {% endfor %} 
+
+    </table>
+</div>
+
+<div class="my-4"><button>Ajouter un Point Relai</button></div>
+{{ include('user/_delete_form.html.twig') }}
+{% endif %}
+
+{% endblock %}

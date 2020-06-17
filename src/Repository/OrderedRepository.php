@@ -36,6 +36,40 @@ class OrderedRepository extends ServiceEntityRepository
     }
     */
 
+    public function findUserOrdereds($value)
+    {
+        return $this->createQueryBuilder('o')
+            ->innerJoin('o.user', 'u')
+            ->andWhere('u.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findCompanyNonValidatedOrdereds($value)
+    {
+        return $this->createQueryBuilder('o')
+            ->innerJoin('o.company', 'c')
+            ->innerJoin('c.user', 'u')
+            ->where('u.id = :val AND o.validated = false')
+            /* ->andWhere('o.validated = 0') */
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findCompanyValidatedOrdereds($value)
+    {
+        return $this->createQueryBuilder('o')
+            ->innerJoin('o.company', 'c')
+            ->innerJoin('c.user', 'u')
+            ->where('u.id = :val AND o.validated = true')
+            /* ->andWhere('o.validated = 0') */
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult();
+    }
+
     /*
     public function findOneBySomeField($value): ?Ordered
     {

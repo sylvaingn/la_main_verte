@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Company;
 use App\Entity\Review;
 use App\Form\ReviewType;
 use App\Repository\ReviewRepository;
@@ -49,7 +50,18 @@ class ReviewController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="review_show", methods={"GET"})
+     * @Route("/company", name="review_company", methods={"GET"})
+     */
+    public function allReviews(ReviewRepository $reviewRepository): Response
+    {
+        return $this->render('review/show.html.twig', [
+            'reviews' => $reviewRepository->findMyCompanyReviews($this->getUser()),
+        ]);
+    }
+
+
+    /**
+     * @Route("/{company}", name="review_show", methods={"GET"})
      */
     public function show(Review $review): Response
     {
@@ -57,6 +69,8 @@ class ReviewController extends AbstractController
             'review' => $review,
         ]);
     }
+
+
 
     /**
      * @Route("/{id}/edit", name="review_edit", methods={"GET","POST"})
@@ -83,7 +97,7 @@ class ReviewController extends AbstractController
      */
     public function delete(Request $request, Review $review): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$review->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $review->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($review);
             $entityManager->flush();
