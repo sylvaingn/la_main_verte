@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -52,11 +53,8 @@ class CartController extends AbstractController
      */
     public function add($id, SessionInterface $session, ProductRepository $productRepository, StockRepository $stockRepository)
     {
-        // on va passer en paramètre l'id du produit à ajouter au panier ($id)
-        // on demande a session de nous retourner l'objet 'panier', qui par défaut sera un tableau vide
         $panier = $session->get('panier', []);
    
-        // on va stocker dans notre panier des id auquels on va affecter les qtés
         if (!empty($panier[$id])) //si le panier n'est pas vide pour ce produit
         {
             $panier[$id]++; // on l'incrémente
@@ -64,8 +62,6 @@ class CartController extends AbstractController
             $panier[$id] = 1;
         }
 
-        // on sauvegarde le panier dans la session au fur et à mesure des ajouts
-        // donc au demande a 'session' de remplacer notre panier précédent par le nouveau
         $session->set('panier', $panier);
         $panierWithData = [];
         foreach ($panier as $id => $quantity) {
@@ -78,23 +74,13 @@ class CartController extends AbstractController
             ];
         }
 
-        //on calcule le montant total du panier
         $total = 0;
         foreach ($panierWithData as $item) {
             $totalItem = $item['stock']->getPrice() * $item['quantity'];
             $total += $totalItem;
         }
-        //lignes pour test à supprimer après test
-        $id_company = 1;
-        $stocks = $stockRepository->findBy(['company' => $id_company]);
-        return $this->render('stock/ordered.html.twig', [
-            'stocks' => $stocks,
-            'total' => $total,
-            'items' =>  $panierWithData
-            ]);
 
-        // ligne suivante à remettre après test
-        // return $this->redirectToRoute("cart_index"); // affichage du panier à chaque nouvel article
+        return $this->redirectToRoute("cart_index"); // affichage du panier à chaque nouvel article
     }
 
     /**
@@ -113,29 +99,6 @@ class CartController extends AbstractController
         $session->set('panier', $panier);
         return $this->redirectToRoute("cart_index");
     }
-
-    // /**
-    //  * @Route("/panier/testAjax", name="cart_ajax")
-    // */
-    // public function testAjaxPanier(Request $request, SessionInterface $session)
-    // {
-    //     // $contenu = $session->get('panier', []);
-    //     // dd($contenu);
-
-    //     // if($request->isXmlHttpRequest())
-    //     // {
-    //         $contenu = $session->get('panier', []);
-    //         if ( count($contenu) == 0)
-    //         {
-    //             return new Response("panier vide");
-    //         }else{
-    //             return new JsonResponse(array('data' => json_encode($contenu)));
-    //         }
-
-    //     // }else{
-    //         // return new Response("pas de requete");
-    //     // }
-    // }
 
     /**
      * @Route("createCommande", name="createCommande")
@@ -176,13 +139,11 @@ class CartController extends AbstractController
 
         $entityManager->persist($ordered);
 
-        // dd($ordered);
-        // $entityManager->flush();
+       $entityManager->flush();
 
         //création des lignes détail :
         $id_ordered = $this->getUser(1);
         foreach ($futurCde as $key){
-            dd($key);
             $detail = new Detail();
             $detail->setOrdered($id_ordered);
             $detail->setQuantity($detail['quantity']);
@@ -190,13 +151,13 @@ class CartController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($detail);
         }
-        // $entityManager->flush();
+        $entityManager->flush();
 
         //suppression du panier
         $session->set('panier', []);
 
         return $this->redirectToRoute("app_index");
-
+        $session->clear();
     }
 
 }

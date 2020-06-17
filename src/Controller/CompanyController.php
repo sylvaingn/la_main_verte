@@ -8,6 +8,7 @@ use App\Form\CompanyType;
 use App\Repository\AddressRepository;
 use App\Repository\CompanyRepository;
 use App\Repository\ReviewRepository;
+use App\Repository\StockRepository;
 use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -151,8 +152,9 @@ class CompanyController extends AbstractController
     /**
      * @Route("/{company}", name="company_show", methods={"GET","POST"})
      */
-    public function show(Company $company, Request $request, CompanyRepository $companyRepository, ReviewRepository $reviewRepository): Response
+    public function show(Company $company, Request $request, CompanyRepository $companyRepository, ReviewRepository $reviewRepository, StockRepository $stockRepository): Response
     {
+        
         $review = new Review();
         $form = $this->createFormBuilder($review)
             ->add('rating', IntegerType::class, [
@@ -177,7 +179,6 @@ class CompanyController extends AbstractController
             $review->setUser($this->getUser());
 
             if (is_null($this->getUser())) {
-
                 return $this->redirectToRoute('app_login');
             } else {
 
@@ -185,15 +186,22 @@ class CompanyController extends AbstractController
                 $entityManager->persist($review);
                 $entityManager->flush();
 
-                return $this->redirectToRoute('company_show', ["company" => $company->getId()]);
+                $stocks = $stockRepository->findBy(['company' => $company]);
+
+                return $this->redirectToRoute('company_show', [
+                    "company" => $company->getId(),
+                    "stocks"    =>  $stocks
+                    ]);
             }
         }
+
+        $stocks = $stockRepository->findBy(['company' => $company]);
 
         return $this->render('company/show.html.twig', [
             'reviews' => $reviewRepository->findCompanyReviews($company),
             'company' => $company,
+            'stocks'  => $stocks,
             'form' => $form->createView(),
-
         ]);
     }
 }
