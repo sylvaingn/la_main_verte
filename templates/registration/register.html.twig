@@ -30,3 +30,38 @@
         </div>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+
+    <script type="text/javascript">
+
+        jQuery(document).ready(() => {
+
+        // console.log('ALGOLIA_APP_ID');
+
+            (function() {
+                var placesAutocomplete = places({
+                    appId: 'plKNTMHFAPTI',
+                    apiKey: '9ce06e385adac77792bd67ae26d69adb',
+                    container: document.querySelector("#registration_form_address_line"),
+                    templates: {
+                    value: function(suggestion) {
+                        return suggestion.name;
+                    }
+                    }
+                }).configure({
+                    type: 'address'
+                });
+                placesAutocomplete.on('change', function resultSelected(e) {
+                    document.querySelector('#registration_form_address_city').value = e.suggestion.city || '';
+                    document.querySelector('#registration_form_address_zipcode').value = e.suggestion.postcode || '';
+                });
+            })();
+
+        });
+
+    </script>
+
+{% endblock %}
