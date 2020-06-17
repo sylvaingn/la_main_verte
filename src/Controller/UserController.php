@@ -25,7 +25,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/gestion/user", name="user_index", methods={"GET"})
+     * @Route("/user/gestion", name="user_index", methods={"GET"})
      * isGranted ("ROLE_ADMIN")
      */
     public function index(UserRepository $userRepository): Response
@@ -114,7 +114,7 @@ class UserController extends AbstractController
                 }
             }
         }
-        return $this->redirectToRoute('app_index');
+        return $this->redirectToRoute('user_index');
     }
 
     /**
