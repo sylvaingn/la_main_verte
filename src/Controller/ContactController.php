@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
-use App\Repository\ContactRepository;
+use App\Controller\SubmitType;
+use Symfony\Component\Mime\Address;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,22 +34,43 @@ class ContactController extends AbstractController
     public function new(Request $request): Response
     {
         $contact = new Contact();
+
         $form = $this->createForm(ContactType::class, $contact);
+
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($contact);
-            $entityManager->flush();
+        
+            $contact->setCreatedAt(new \DateTime());
 
-            return $this->redirectToRoute('app_index');
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($contact);
+            $em->flush();
+            // $notification->notify($contact);
+            
+            $emailTemplate = new TemplatedEmail();
+            
+            $emailTemplate->from(new Address('admin@lamainverte.com', 'La Main Verte'))
+                    ->to($contact->getEmail())
+                    ->subject('Demande de renseignements')
+                    ->htmlTemplate('email/contact.html.twig');
+        
+            
+            $this->addFlash('success','Votre message à bien été envoyé'); 
+            
+            
+            return $this->redirectToRoute('contact_show', [
+                'id' => $contact->getId()
+                ]);
+            
         }
-
+    
         return $this->render('contact/new.html.twig', [
-            'contact' => $contact,
             'form' => $form->createView(),
         ]);
+
     }
+
 
     /**
      * @Route("/{id}", name="contact_show", methods={"GET"})

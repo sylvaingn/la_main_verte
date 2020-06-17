@@ -30,19 +30,18 @@
 						<td>{{ item.quantity * item.stock.price }} €</td>
 						<td>
 							<a id="suppStockOffCart" href="{{ path("cart_remove", {'id': item.stock.id}) }}" class="btn">
-								{# //fonction définie dans CartController :  #}
 								<i class="fa fa-trash"></i>
 							</a>
+							<a class="btn btn-sm btn-danger" href="{{ path("company_show", {'company': item.stock.company.id}) }}">Continuer mes achats</a>
 						</td>
 					</tr>
 				{% endfor %}
 			</tbody>
 			<tfoot>
-				{# // total du panier #}
 				<tr>
 					<td colspan="4" class="text-right">Total : </td>
 					<td>{{ total }} €</td>
-					<td><a id="confirmOrdered" href="{{path("createCommande")}}" class="btn btn-sm btn-primary">Passer la commande</a></td>
+					<td><a id="confirmOrdered" href="{{ path("createCommande") }}" class="btn btn-sm btn-primary">Passer la commande</a></td>
 				</tr>
 			</tfoot>
 		</table>

@@ -30,18 +30,24 @@ class StockController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $company = $this->getUser()->getCompany();
+
+
         $stock = new Stock();
         $form = $this->createForm(StockType::class, $stock);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $stock->setCompany($company);
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($stock);
             $entityManager->flush();
 
-            return $this->redirectToRoute('stock_index');
+            return $this->redirectToRoute('profil_index');
         }
-
+        
         return $this->render('stock/new.html.twig', [
             'stock' => $stock,
             'form' => $form->createView(),
@@ -59,7 +65,7 @@ class StockController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="stock_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="stock_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Stock $stock): Response
     {
@@ -69,7 +75,7 @@ class StockController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('stock_index');
+            return $this->redirectToRoute('profil_index');
         }
 
         return $this->render('stock/edit.html.twig', [
@@ -79,16 +85,17 @@ class StockController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="stock_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="stock_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Stock $stock): Response
     {
+
         if ($this->isCsrfTokenValid('delete'.$stock->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($stock);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('stock_index');
+        return $this->redirectToRoute('profil_index');
     }
 }

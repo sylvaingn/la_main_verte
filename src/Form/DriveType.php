@@ -18,8 +18,8 @@ class DriveType extends AbstractType
                 'label' => 'Nom du point relais'
             ])
             ->add('address', AddressType::class, [
-                'label' => 'Addresse',
             ])
+                'label' => 'Addresse',
         ;
     }
 

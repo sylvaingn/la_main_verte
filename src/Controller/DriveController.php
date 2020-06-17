@@ -43,16 +43,18 @@ class DriveController extends AbstractController
      */
     public function new(Request $request): Response
     {
+
         $drive = new Drive();
         $form = $this->createForm(DriveType::class, $drive);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $drive->addCompany($this->getUser()->getCompany());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($drive);
             $entityManager->flush();
 
-            return $this->redirectToRoute('drive_index');
+            return $this->redirectToRoute('profil_index');
         }
 
         return $this->render('drive/new.html.twig', [
@@ -82,7 +84,7 @@ class DriveController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('drive_index');
+            return $this->redirectToRoute('profil_index');
         }
 
         return $this->render('drive/edit.html.twig', [
