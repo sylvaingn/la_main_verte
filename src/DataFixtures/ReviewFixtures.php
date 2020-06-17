@@ -35,7 +35,7 @@ class ReviewFixtures extends Fixture implements DependentFixtureInterface
             $review->setRating(rand(0,10));
             $review->setComment($faker->text);
             $review->setRating(rand(0,10));
-            $review->setUser($this->userRepository->find(rand(1,1000)));
+            $review->setUser($this->userRepository->find(rand(1,500)));
             $review->setCompany($this->companyRepository->find(rand(1,100)));
 
             
