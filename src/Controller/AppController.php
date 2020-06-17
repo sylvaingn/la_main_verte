@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Repository\CompanyRepository;
+use App\Repository\OrderedRepository;
 use App\Repository\StockRepository;
 use Symfony\Component\Routing\Annotation\Route;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class AppController extends AbstractController
 {
@@ -17,10 +19,12 @@ class AppController extends AbstractController
      *
      */
 
-    public function index(CompanyRepository $companyRepository)
+    public function index(CompanyRepository $companyRepository, OrderedRepository $orderedRepository)
     {
         return $this->render('app/index.html.twig' ,[
-            "companies" => $companyRepository->findTenBestCompanies()
+            "companies" => $companyRepository->findTenBestCompanies(),
+            "ordereds" => $orderedRepository->findCompanyNonValidatedOrdereds($this->getUser()),
+            "vOrdereds" => $orderedRepository->findCompanyValidatedOrdereds($this->getUser()),
         ] );
     }
 
@@ -61,11 +65,32 @@ class AppController extends AbstractController
         return $this->render('app/cgu.html.twig');
     }
 
+    /**
+     * @Route ("/validated-ordered", name="app_validated-ordered")
+     *
+     */
+    public function validatedOrdered(OrderedRepository $orderedRepository, Request $request)
+    {
+        if (isset($_POST['orderedValidated'])) {
+
+            foreach ($_POST['orderedValidated'] as $id) {
+                
+                $arrayOfNewOrdered = $orderedRepository->findById($id);
+
+                foreach ($arrayOfNewOrdered as $newOrdered) {
+                    $newOrdered -> setValidated(1);
+                    $this->getDoctrine()->getManager()->flush();
+                }
+            }
+        }
+        return $this->redirectToRoute('app_index');
+    }
+
     /**********
      * PARTIE POUR TEST à SUPPRIMER
      */
 
-     /**
+    /**
      * @Route("/testcommand", name="/testcommand")
      */
     public function testCommand(StockRepository $stockRepository)
