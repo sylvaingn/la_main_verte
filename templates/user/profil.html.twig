@@ -72,7 +72,7 @@
 
 
 <div class="my-4">
-    <button>Supprimer mon compte</button>
+    <button class="btn btn-sm">Supprimer mon compte</button>
 </div>
 
 {% endif %}
@@ -122,7 +122,7 @@
 </div>
 
 <div class="my-4">
-    <a href="{{ path('profil_edit', {user:app.user.id}) }}"><button>Modifier mes informations</button></a>
+    <a href="{{ path('profil_edit', {user:app.user.id}) }}"><button class="btn btn-sm">Modifier mes informations</button></a>
 </div>
 
 <div class="my-4">
@@ -162,7 +162,7 @@
     </table>
 </div>
 
-<div class="my-4"><a href="{{ path('stock_new')}}"><button>Ajouter un stock</button></a></div>
+<div class="my-4"><a href="{{ path('stock_new')}}"><button class="btn btn-sm">Ajouter un stock</button></a></div>
 
 <div class="my-4">
     <h5>Liste des points Relais : </h5>
@@ -190,7 +190,7 @@
             <td>{{ drive.address.line2 }}</td>
             <td>{{ drive.address.zipcode }}</td>
             <td>{{ drive.address.city }}</td>
-            <td><a href="{{ path('drive_edit', {id: drive.id})  }}"><button>Modifier</button></a></td>
+            <td><a href="{{ path('drive_edit', {id: drive.id})  }}"><button class="btn btn-sm">Modifier</button></a></td>
             <td>{{ include('drive/_delete_form.html.twig') }}</td>
 
 
@@ -202,8 +202,41 @@
     </table>
 </div>
 
-<div class="my-4"><a href="{{ path('drive_new')}}"><button>Ajouter un point relais</button></a></div>
+<div class="my-4"><a href="{{ path('drive_new')}}"><button class="btn btn-sm">Ajouter un point relais</button></a></div>
 {{ include('user/_delete_form.html.twig') }}
 {% endif %}
 
 {% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+
+	<script type="text/javascript">
+
+		jQuery(document).ready(() => { // console.log('ALGOLIA_APP_ID');
+
+            (function () {
+            var placesAutocomplete = places({
+            appId: 'plKNTMHFAPTI',
+            apiKey: '9ce06e385adac77792bd67ae26d69adb',
+            container: document.querySelector("#drive_address_line"),
+            templates: {
+            value: function (suggestion) {
+            return suggestion.name;
+            }
+            }
+            }).configure({type: 'address'});
+            placesAutocomplete.on('change', function resultSelected(e) {
+            document.querySelector('#drive_address_city').value = e.suggestion.city || '';
+            document.querySelector('#drive_address_zipcode').value = e.suggestion.postcode || '';
+            document.querySelector('#drive_address_latitude').value = e.suggestion.latlng.lat;
+            document.querySelector('#drive_address_longitude').value = e.suggestion.latlng.lng;
+            });
+            })();
+
+        });
+	</script>
+
+{% endblock %}
+

@@ -14,7 +14,7 @@ class DriveType extends AbstractType
     {
         $builder
             ->add('name', TextType::class,[
-                'label' => 'Nom du Point Relai'
+                'label' => 'Nom du Point Relais'
             ])
             ->add('address', AddressType::class)
         ;
