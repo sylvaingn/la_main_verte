@@ -57,6 +57,15 @@ class ReviewRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+
+    public function findAllWithUser()
+    {
+        return $this->createQueryBuilder('r')
+            ->innerJoin('r.user', 'u')
+            ->getQuery()
+            ->getResult();
+    }
+
     /*
     public function findOneBySomeField($value): ?Review
     {

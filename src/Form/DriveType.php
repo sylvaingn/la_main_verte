@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Drive;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -14,10 +15,12 @@ class DriveType extends AbstractType
     {
         $builder
             ->add('name', TextType::class,[
-                'label' => 'Nom du Point Relais'
+                'label' => 'Nom du point relais'
             ])
-            ->add('address', AddressType::class)
-        ;
+            ->add('address', AddressType::class, [
+            
+                'label' => 'Addresse',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

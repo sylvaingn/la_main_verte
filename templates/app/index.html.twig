@@ -7,36 +7,37 @@
 
 {% if is_granted ("ROLE_ADMIN") %}
 
-<h1>Statut "Producteur" à valider</h1>
+<h1 class="my-5">Statut "Producteur" à valider</h1>
 
 <form action="{{ path('app_validated-company')}}" method="POST">
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nom</th>
-            <th scope="col">N° Siret</th>
-            <th scope="col">Description</th>
-            <th scope="col">À valider</th>
-        </tr>
-    </thead>
-    <tbody>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">N° Siret</th>
+                <th scope="col">Description</th>
+                <th scope="col">À valider</th>
+            </tr>
+        </thead>
+        <tbody>
 
-    {% for company in Vcompanies %}
-    
-        <tr>
-            <th scope="row">{{ company.id }}</th>
-            <td>{{ company.name }}</td>
-            <td>{{ company.siret }}</td>
-            <td>{{ company.description }}</td>
-            <td> <input type="checkbox" name="companyValidated[]" value={{ company.id }} id="companyValidated{{company.id}}" > </td>
-        </tr>
+            {% for company in Vcompanies %}
 
-    {% endfor %}
-    </tbody>
-</table>
+            <tr>
+                <th scope="row">{{ company.id }}</th>
+                <td>{{ company.name }}</td>
+                <td>{{ company.siret }}</td>
+                <td>{{ company.description }}</td>
+                <td> <input type="checkbox" name="companyValidated[]" value={{ company.id }}
+                        id="companyValidated{{company.id}}"> </td>
+            </tr>
 
-<button type="submit">Mettre à jour</button>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button type="submit">Mettre à jour</button>
 </form>
 
 {% endif %}
@@ -47,7 +48,7 @@
 
 {% if is_granted ('ROLE_PRODUCTEUR') == false and is_granted ('ROLE_ADMIN') == false  %}
 
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid my-5">
     <div class="container">
         <h1 class="display-4">Bienvenue sur la main verte</h1>
     </div>
@@ -72,36 +73,65 @@
 
 <hr class="my-3">
 
-<div id="carouselCompany" class="carousel slide" data-ride="carousel"  data-interval="3000">
+<div class="my-5" style="height: 3em;background-color: darkolivegreen!important; ">
+    <h2 class="ml-2">Les 10 meilleurs producteurs</h5>
+</div>
+
+
+<div id="carouselCompany" class="carousel slide my-5" data-ride="carousel" data-interval="3000">
     <div class="carousel-inner">
 
-        {% for company in companies %}
-        {% if loop.first %}
+        <div class="tab-pane container">
+            <div class="row">
+
+                {% for company in companies %}
+                {% if loop.first %}
 
 
-        <div class="carousel-item active">
-            <a href="{{ path('company_show', {company : company.id}) }}" class="streched-link">
-            <img src="{{ asset('/assets/img/etalage primeur.jpg') }}" alt="" class="d-block w-30">            
-            <h5>{{company.name}}</h5>
-            <p>{{company.description}}</p>
-            </a>
+                <div class="carousel-item active">
+
+                    <div class="company_card_img img col-3">
+                        <img src="{{ asset('assets/img/etalage primeur.jpg') }}" alt="img">
+                        <a href="{{ path('company_show', {company: company.id}) }}" class="stretched-link"></a>
+                    </div>
+                    <div class="company_card_text col-8">
+                        <div class="card-body">
+                            <h3 class="card-title">{{company.name}}</h3>
+                            <p>
+                                {{company.description}}</p>
+                        </div>
+                        <a href="{{ path('company_show', {company: company.id}) }}" class="stretched-link"></a>
+                    </div>
+
+
+                </div>
+
+
+
+                {% else %}
+
+                <div class="carousel-item">
+
+                    <div class="company_card_img img col-3">
+                        <img src="{{ asset('assets/img/etalage primeur.jpg') }}" alt="img">
+                        <a href="{{ path('company_show', {company: company.id}) }}" class="stretched-link"></a>
+                    </div>
+                    <div class="company_card_text col-8">
+                        <div class="card-body">
+                            <h3 class="card-title">{{company.name}}</h3>
+                            <p>
+                                {{company.description}}</p>
+                        </div>
+                        <a href="{{ path('company_show', {company: company.id}) }}" class="stretched-link"></a>
+                    </div>
+                </div>
+
+
+                {% endif %}
+                {% endfor %}
+
+            </div>
         </div>
-
-
-
-        {% else %}
-
-        <div class="carousel-item">
-            <a href="{{ path('company_show', {company : company.id}) }}" class="streched-link">
-            <img src="{{ asset('/assets/img/etalage primeur.jpg') }}" alt="" class="d-block w-30">            
-            <h5>{{company.name}}</h5>
-            <p>{{company.description}}</p>
-            </a>
-        </div>
-
-
-        {% endif %}
-        {% endfor %}
 
 
     </div>
@@ -126,67 +156,70 @@
 
 {% if is_granted ("ROLE_PRODUCTEUR")%}
 
-<h1>Commandes à valider</h1>
+<h1 class="my-5">Commandes à valider</h1>
 
 <form action="{{ path('app_validated-ordered')}}" method="POST">
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Date de création</th>
-            <th scope="col">Prix</th>
-            <th scope="col">Détails</th>
-            <th scope="col">À valider</th>
-        </tr>
-    </thead>
-    <tbody>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date de création</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Détails</th>
+                <th scope="col">À valider</th>
+            </tr>
+        </thead>
+        <tbody>
 
-    {% for ordered in ordereds %}
-    
-        <tr>
-            <th scope="row">{{ ordered.id }}</th>
-            <td>{{ ordered.createdAt|date('d/m/y') }}</td>
-            <td>{{ ordered.totalPrice}}</td>
-            <td>Détails</td>
-            <td> <input type="checkbox" name="orderedValidated[]" value={{ ordered.id }} id="orderedValidated{{ordered.id}}" > </td>
-        </tr>
+            {% for ordered in ordereds %}
 
-    {% endfor %}
-    </tbody>
-</table>
+            <tr>
+                <th scope="row">{{ ordered.id }}</th>
+                <td>{{ ordered.createdAt|date('d/m/y') }}</td>
+                <td>{{ ordered.totalPrice}}</td>
+                <td>Détails</td>
+                <td> <input type="checkbox" name="orderedValidated[]" value={{ ordered.id }}
+                        id="orderedValidated{{ordered.id}}"> </td>
+            </tr>
 
-<button type="submit">Mettre à jour</button>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="btn btn-secondary my-5" type="submit">Mettre à jour</button>
 </form>
 
-<h1>Récapitulatif des commandes terminées</h1>
+<hr>
+
+<h1 class="my-5">Récapitulatif des commandes terminées</h1>
 
 
 
-<table class="table">
+<table class="table mb-5">
     <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
             <th scope="col">Date de création</th>
             <th scope="col">Prix</th>
             <th scope="col">Détails</th>
-            
-            
+
+
         </tr>
     </thead>
     <tbody>
 
-    {% for ordered in vOrdereds %}
-    
+        {% for ordered in vOrdereds %}
+
         <tr>
             <th scope="row">{{ ordered.id }}</th>
             <td>{{ ordered.createdAt|date('d/m/y') }}</td>
             <td>{{ ordered.totalPrice}}</td>
             <td>Détails</td>
 
-            
+
         </tr>
 
-    {% endfor %}
+        {% endfor %}
     </tbody>
 </table>
 

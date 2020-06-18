@@ -3,31 +3,26 @@
 {% block title %}Contact index{% endblock %}
 
 {% block body %}
-    <h1>Contact index</h1>
+    <h1 class="my-5" >Messages reçus</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Created_at</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
+                <th>Date</th>
+                <th>Prénom</th>
+                <th>Nom</th>
                 <th>Email</th>
-                <th>actions</th>
+                <th>Message</th>
             </tr>
         </thead>
         <tbody>
         {% for contact in contacts %}
             <tr>
-                <td>{{ contact.id }}</td>
                 <td>{{ contact.createdAt ? contact.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ contact.firstname }}</td>
                 <td>{{ contact.lastname }}</td>
                 <td>{{ contact.email }}</td>
-                <td>
-                    <a href="{{ path('contact_show', {'id': contact.id}) }}">show</a>
-                    <a href="{{ path('contact_edit', {'id': contact.id}) }}">edit</a>
-                </td>
+                <td>{{ contact.content }}</td>
             </tr>
         {% else %}
             <tr>
@@ -37,5 +32,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('contact_new') }}">Create new</a>
+
 {% endblock %}

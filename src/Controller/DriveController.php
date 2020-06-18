@@ -16,12 +16,25 @@ use Symfony\Component\Routing\Annotation\Route;
 class DriveController extends AbstractController
 {
     /**
-     * @Route("/", name="drive_index", methods={"GET"})
+     * @Route("/gestion", name="drive_index", methods={"GET", "POST"})
      */
-    public function index(DriveRepository $driveRepository): Response
+    public function index(DriveRepository $driveRepository, Request $request): Response
     {
+        $drive = new Drive();
+        $form = $this->createForm(DriveType::class, $drive);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($drive);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('drive_index');
+        }
+
         return $this->render('drive/index.html.twig', [
-            'drives' => $driveRepository->findAll(),
+            'drives' => $driveRepository->findAllWithAddress(),
+            'form' => $form->createView(),
         ]);
     }
 

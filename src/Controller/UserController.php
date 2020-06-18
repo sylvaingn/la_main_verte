@@ -25,7 +25,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/user", name="user_index", methods={"GET"})
+     * @Route("/user/gestion", name="user_index", methods={"GET"})
      * isGranted ("ROLE_ADMIN")
      */
     public function index(UserRepository $userRepository): Response
@@ -34,6 +34,7 @@ class UserController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
+    
 
     /**
      * @Route("/profil", name="profil_index", methods={"GET"})
@@ -50,6 +51,16 @@ class UserController extends AbstractController
             'ordereds' => $orderedRepository->findUserOrdereds($this->getUser()) // CLIENT : affichage des commandes pour chaque utilisateur
         ]);
     }
+
+    /**
+     * @Route("/gestion", name="user_gestion", methods={"GET"})
+     */
+    public function gestion()
+    {
+
+        return $this->render('user/gestion.html.twig');
+    }
+
 
     /**
      * @Route("/user/new", name="user_new", methods={"GET","POST"})
@@ -75,14 +86,36 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user/{id}", name="user_show", methods={"GET"})
+     * @Route("/user/{id}", name="user_edit", methods={"GET"})
      */
-    /* public function show(User $user): Response
+    public function editUser(User $user): Response
     {
-        return $this->render('user/show.html.twig', [
+        return $this->render('user/edit.html.twig', [
             'user' => $user,
         ]);
-    } */
+    }
+
+    /**
+     * @Route ("/user/modify-role", name="user_modify_role", methods={"POST"})
+     *
+     */
+    public function modifyRole(UserRepository $userRepository, Request $request)
+    {
+        if (isset($_POST['roles'])) {
+
+            foreach ($_POST['roles'] as $id => $role) {
+
+
+                $users = $userRepository->findById($id);
+
+                foreach ($users as $user) {
+                    $user->setRoles([$role]);
+                    $this->getDoctrine()->getManager()->flush();
+                }
+            }
+        }
+        return $this->redirectToRoute('user_index');
+    }
 
     /**
      * @Route("/profil/edit/{user}", name="profil_edit", methods={"GET","POST"})
@@ -96,7 +129,7 @@ class UserController extends AbstractController
 
             $form->add('company', CompanyType::class);
         }
-        
+
         $form->handleRequest($request);
 
 
@@ -151,12 +184,14 @@ class UserController extends AbstractController
      */
     public function delete(Request $request, User $user): Response
     {
+
+
         if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
+            return $this->redirectToRoute('app_logout');
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();
         }
-
-        return $this->redirectToRoute('app_index');
     }
 }

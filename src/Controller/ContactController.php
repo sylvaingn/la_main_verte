@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Controller\SubmitType;
+use App\Repository\ContactRepository;
 use Symfony\Component\Mime\Address;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,6 +18,16 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ContactController extends AbstractController
 {
+
+    /**
+     * @Route("/gestion", name="contact_index", methods={"GET"})
+     */
+    public function index(ContactRepository $contactRepository)
+    {
+        return $this->render('contact/index.html.twig', [
+            'contacts' => $contactRepository->findAll()
+        ]);
+    }
 
     /**
      * @Route("/", name="contact_new", methods={"GET","POST"})

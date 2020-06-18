@@ -3,27 +3,24 @@
 {% block title %}Review index{% endblock %}
 
 {% block body %}
-    <h1>Review index</h1>
+    <h1 class="my-5" >Liste des avis</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Rating</th>
-                <th>Comment</th>
-                <th>actions</th>
+                <th>Note</th>
+                <th>Commentiare</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for review in reviews %}
             <tr>
-                <td>{{ review.id }}</td>
+                <td>{{ review.user.email }}</td>
                 <td>{{ review.rating }}</td>
                 <td>{{ review.comment }}</td>
-                <td>
-                    <a href="{{ path('review_show', {'id': review.id}) }}">show</a>
-                    <a href="{{ path('review_edit', {'id': review.id}) }}">edit</a>
-                </td>
+                <td>{{ include('review/_delete_form.html.twig') }}</td>
             </tr>
         {% else %}
             <tr>
@@ -33,5 +30,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('review_new') }}">Create new</a>
 {% endblock %}

@@ -36,6 +36,13 @@ class DriveRepository extends ServiceEntityRepository
     }
     */
 
+    public function findAllWithAddress()
+    {
+        return $this->createQueryBuilder('d')
+            ->innerJoin('d.address', 'a')
+            ->getQuery()
+            ->getResult();
+    }
 
     public function findCompanyDrives($value)
     {
