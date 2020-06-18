@@ -45,7 +45,7 @@
 {# Accueil si client, connecté ou non #}
 
 
-{% if is_granted ('ROLE_PRODUCTEUR')== false and is_granted ('ROLE_ADMIN') == false  %}
+{% if is_granted ('ROLE_PRODUCTEUR') == false and is_granted ('ROLE_ADMIN') == false  %}
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -53,28 +53,24 @@
     </div>
 </div>
 
-
+<hr class="my-3">
+<div class="container">
 <form action="{{ path('company_result')}}" method="GET">
     <div class="row">
-        <div class="col">
+        <div class="col-5">
             <input type="text" class="form-control" name="city" placeholder="Entrez le nom de votre ville">
         </div>
-        <div class="col">
+        <div class="col-5">
             <input type="text" class="form-control" name="word" placeholder="Entrez les mots-clés">
         </div>
-        <div class="col">
-            <button id="searchProd" type="submit">Rechercher</button>
+        <div class="col-2">
+            <button id="searchProd" class="btn btn-sm btn-primary" type="submit">Rechercher</button>
         </div>
     </div>
 </form>
+</div>
 
-<br>
-<br>
-<br>
-<br>
-
-
-
+<hr class="my-3">
 
 <div id="carouselCompany" class="carousel slide" data-ride="carousel"  data-interval="3000">
     <div class="carousel-inner">
