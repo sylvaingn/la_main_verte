@@ -134,7 +134,11 @@
     <hr class="my-2">
         <h3>
         Mon stock de produits 
-            <a class="btn btn-sm btn-primary" href="{{ path('stock_new')}}">Ajouter</a>
+            {% if app.user.company.validated %}
+            <a href="{{ path('stock_new')}}"><button class="btn btn-sm btn-primary">Ajouter</button></a>
+            {% else %}
+            <a href="{{ path('stock_new')}}"><button class="btn btn-sm btn-primary" disabled>Ajouter</button></a>
+            {% endif %}
         </h3>
 
         <table class="table">
@@ -165,7 +169,11 @@
 
     <hr class="my-2">
         <h3>Mes points Relais 
-            <a class="btn btn-sm btn-primary" href="{{ path('drive_new')}}">Ajouter</a>
+            {% if app.user.company.validated %}
+            <a href="{{ path('drive_select')}}"><button class="btn btn-sm btn-primary">Ajouter</button></a>
+            {% else %}
+            <a href="{{ path('drive_select')}}"><button class="btn btn-sm btn-primary" disabled>Ajouter</button></a>
+            {% endif %}
         </h3>
 
     <table class="table">
