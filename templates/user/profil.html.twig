@@ -15,29 +15,46 @@
     </div>
 
     <hr class="my-2">
-    <h5><i class="fa fa-id-card-o"></i> Petit récapitulatif de vos informations client :
-        <a class="btn btn-sm btn-primary" href="{{ path('profil_edit', {user:app.user.id}) }}">Modifier mes informations</a>
+    <h5>Mes informations  
+        <a class="btn btn-sm btn-primary" href="{{ path('profil_edit', {user:app.user.id}) }}">Modifier</a>
     </h5>
 
-    <ul class="list-group">
-        <li class="list-group-item py-0"><strong>Nom :</strong> {{app.user.lastname}}</li>
-        <li class="list-group-item"><strong>Prénom :</strong> {{app.user.firstname}}</li>
-        <li class="list-group-item"><strong>Email :</strong> {{app.user.email}}</li>
-        <li class="list-group-item"><strong>Adresse :</strong> {{app.user.address.line}}</li>
-        <li class="list-group-item"><strong>Complément d'adresse :</strong> {{app.user.address.line2}}</li>
-        <li class="list-group-item"><strong>Code postal :</strong> {{app.user.address.zipcode}}</li>
-        <li class="list-group-item"><strong>Ville :</strong> {{app.user.address.city}}</li>
-        <li class="list-group-item"><strong>N° téléphone :</strong> {{app.user.phone}}</li>
-    </ul>
+    <table class="table">
+        <thead class="table bg-secondary">
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Adresse</th>
+                <th>Complément d'adresse</th>
+                <th>Code postal</th>
+                <th>Ville</th>
+                <th>Téléphone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>{{app.user.lastname}}</strong></td>
+                <td><strong>{{app.user.firstname}}</strong></td>
+                <td>{{app.user.email}}</td>
+                <td>{{app.user.address.line}}</td>
+                <td>{{app.user.address.line2}}</td>
+                <td>{{app.user.address.zipcode}}</td>
+                <td>{{app.user.address.city}}</td>
+                <td>{{app.user.phone}}</td>
+            </tr>
+        </tbody>
+    </table>
+
 
     <hr class="my-2">
-        <h5>Vos dernières commandes : </h5>
+        <h5>Mes dernières commandes </h5>
 
         <table class="table">
-            <thead>
+            <thead class="table bg-secondary">
                 <tr>
-                    <th>Id Commande</th>
-                    <th>Date de la commande</th>
+                    <th>N°</th>
+                    <th>Date</th>
                     <th>Prix total</th>
                     <th>Détails</th>
                 </tr>
@@ -45,17 +62,17 @@
             <tbody>
                 {% for ordered in ordereds %}
                 <tr>
-                    <td>{{ordered.id}}</td>
+                    <td><strong>#{{ordered.id}}</strong></td>
                     <td>{{ordered.createdAt|date("d/m/Y")}}</td>
-                    <td>{{ordered.totalPrice}}€</td>
-                    <td> <a href="{{ path('ordered_show', {id : ordered.id})}}">Voir le détail</a></td>
+                    <td>{{ordered.totalPrice}} €</td>
+                    <td> <a href="{{ path('ordered_show', {id : ordered.id})}}"><i class="fa fa-file-archive-o"></i></a></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
 
         <hr class="my-2">
-        <button class="btn btn-sm btn-danger">Supprimer mon compte</button>
+        <button class="btn btn-sm btn-danger my-2">Supprimer mon compte</button>
 
 {% endif %}
 
@@ -75,11 +92,6 @@
             <img src="{{ asset('assets/img/user_photo/' ~ app.user.photo ) }}" height="180px" alt="Photo Utilisateur"></img>
             </div>
         </div>
-    </div>
-
-    <div class="my-4">
-    </div>
-    <div class="my-4">
     </div>
 
     <hr class="my-2">
