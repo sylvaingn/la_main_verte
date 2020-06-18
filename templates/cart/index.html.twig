@@ -22,9 +22,7 @@
 				{% for item in items %}
 					<tr>
 						<td>{{ item.product.name}}</td>
-						{# <td>{{ item.id }}</td> #}
 						<td>{{ item.quantity }}</td>
-						{# <td>{{ item.conditioning }}</td> #}
 						<td>{{ item.stock.conditioning }}</td>
 						<td>{{ item.stock.price }} €</td>
 						<td>{{ item.quantity * item.stock.price }} €</td>

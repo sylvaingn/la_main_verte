@@ -187,20 +187,34 @@ class CompanyController extends AbstractController
                 $entityManager->flush();
 
                 $stocks = $stockRepository->findBy(['company' => $company]);
-
+                $cartUser = [];
+                foreach ($stocks as $item) {
+                    $cartUser[] = [
+                        'stock'   => $stockRepository->find($item),
+                        'quantity'  =>  0
+                    ];
+                }
                 return $this->redirectToRoute('company_show', [
-                    "company" => $company->getId(),
-                    "stocks"    =>  $stocks
+                    'company' => $company->getId(),
+                    'carts'  => $cartUser,
                     ]);
             }
         }
 
-        $stocks = $stockRepository->findBy(['company' => $company]);
+      
 
+        $stocks = $stockRepository->findBy(['company' => $company]);
+        $cartUser = [];
+        foreach ($stocks as $item) {
+            $cartUser[] = [
+                'stock'   => $stockRepository->find($item),
+                'quantity'  =>  0
+            ];
+        }
         return $this->render('company/show.html.twig', [
             'reviews' => $reviewRepository->findCompanyReviews($company),
             'company' => $company,
-            'stocks'  => $stocks,
+            'carts'  => $cartUser,
             'form' => $form->createView(),
         ]);
     }
