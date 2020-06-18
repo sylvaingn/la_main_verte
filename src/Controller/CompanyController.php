@@ -201,6 +201,7 @@ class CompanyController extends AbstractController
             }
         }
 
+      
 
         $stocks = $stockRepository->findBy(['company' => $company]);
         $cartUser = [];
